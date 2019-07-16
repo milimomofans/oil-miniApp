@@ -1,0 +1,146 @@
+.model_change {
+  width: 710rpx;
+  height: 100rpx;
+  position: relative;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 48px;
+  color: #f0aa3b;
+  border: 2rpx solid #f5bf47;
+  border-radius: 8rpx;
+  line-height: 100rpx;
+  margin: 0 auto 20rpx auto;
+}
+.model_change image {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 35rpx;
+}
+.Price {
+  width: 750rpx;
+  margin: auto;
+}
+.price_style {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 48px;
+  color: #888888;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.line {
+  width: 710rpx;
+  height: 2rpx;
+  background: #eeeeee;
+  margin: 20rpx 20rpx 0 20rpx;
+}
+.change_items {
+  display: flex;
+  width: 710rpx;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 16rpx;
+}
+.change_item_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #888888;
+  margin-right: 25rpx;
+  flex-shrink: 0;
+}
+.change_item_left image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.change_item_right {
+  display: flex;
+  flex-wrap: wrap;
+}
+.change_item {
+  width: 140rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  background: #f8f8f8;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #555555;
+  margin-top: 10rpx;
+}
+.price {
+  padding-top: 30rpx;
+  border-top: 2rpx solid #eeeeee;
+  display: flex;
+  flex-direction: row;
+  margin: 0 40rpx;
+}
+.price .price_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 24rpx;
+}
+.price .price_left image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.price .price_left text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #888888;
+}
+.price .price_right {
+  width: 590rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2rpx solid #dddddd;
+  border-radius: 8rpx;
+}
+.price .price_right text {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 80rpx;
+  color: #bbbbbb;
+  margin-left: 20rpx;
+}
+.price .price_right input {
+  height: 100%;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #cccccc;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.pay_btn {
+  width: 710rpx;
+  height: 88rpx;
+  background: #cccccc;
+  opacity: 1;
+  border-radius: 8rpx;
+  margin: 72rpx auto 0 auto;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 88rpx;
+  color: #ffffff;
+  text-align: center;
+}

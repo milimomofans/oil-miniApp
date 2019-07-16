@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "row":"/miniprogram_npm/vant-weapp/row/index",
+    "col":"/miniprogram_npm/vant-weapp/col/index"
+  }
+}

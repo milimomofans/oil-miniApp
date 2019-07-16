@@ -1,0 +1,59 @@
+<!--pages/home/index.wxml-->
+<view class="model_change">
+    <text>加油站</text>
+    <image src="../../image/home/down.png" /> 
+</view>
+<view class="Price">
+    <row>
+        <col span="8" offset="8" custom-class="price_style">当前市价</col>
+        <col span="8" custom-class="price_style">本油站优惠价</col>
+    </row>
+</view>
+<view class="Price" wx:for="{{Model}}" wx:key="{{index}}">
+    <row>
+        <col span="8" custom-class="price_style">#92</col>
+        <col span="8" custom-class="price_style">-</col>
+        <col span="8" custom-class="price_style">-</col>
+    </row>
+</view>
+<view class="line"></view>
+
+<view class="change_items">
+    <view class="change_item_left">
+        <image src="../../image/home/fuel.png" />
+        油号
+    </view>
+    <view class="change_item_right">
+        <view wx:for="{{Model}}" wx:key="{{index}}" class="change_item">
+            92#
+        </view>
+    </view>
+</view>
+
+<view class="change_items">
+    <view class="change_item_left">
+        <image src="../../image/home/fuel.png" />
+        油枪
+    </view>
+    <view class="change_item_right">
+        <view wx:for="{{Model}}" wx:key="{{index}}" class="change_item">
+            92#
+        </view>
+    </view>
+</view>
+
+<view class="price">
+    <view class="price_left">
+        <image src="/image/home/oilGun.png" />
+        <text>金额</text>
+    </view>
+    <view class="price_right">
+        <text>￥</text>
+        <input type="number" placeholder="请输入金额" />
+    </view>
+
+</view>
+
+<view class="pay_btn">
+    支付
+</view>
