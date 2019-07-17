@@ -29,6 +29,15 @@ let eventObj = {
           }
           api.wxLogin(apiParams).then(res=>{
             console.log(res)
+            if(res.code == 200){
+              wx.setStorageSync('userInfo',res.data)
+              /**
+               * fail to do 这里先跳进首页进行调试
+               */
+              wx.switchTab({
+                url:"/pages/home/index"
+              })
+            }
           })
         }
       })

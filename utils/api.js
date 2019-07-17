@@ -5,21 +5,24 @@ function request({
     data={},
     contentType = 'application/json'
 }){
+    let userInfo = wx.getStorageSync('userInfo'),
+    token =userInfo.token || ''
+    console.log(token)
     let p = new Promise((resolve,reject)=>{
         wx.request({
           url,
           method,
           header:{
             'content-type':contentType,
-            'Accept':"application/json"
+            'Accept':"application/json",
+            token:token
           },
           data,
           success:(res=>{
-            // let {statusCode} = res
-            // if(statusCode == 200){
-            //   resolve(res.data)
-            // }
-            console.log(res)
+            let {statusCode} = res
+            if(statusCode == 200){
+              resolve(res.data)
+            }
           }),
           fail:(fail=>{
             // if(isone){
@@ -49,5 +52,13 @@ module.exports = {
             data:data,
             method:"POST",      
         })
+    },
+    getUserInfo(){
+      let userId = wx.getStorageSync('userInfo').userId
+      let url = `http://oil.gyouzhe.cn/api/user/${userId}/info`
+      return request({
+        url,
+        contentType:'application/x-www-form-urlencoded'
+      })
     }
 }
