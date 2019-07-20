@@ -1,19 +1,37 @@
 <!--pages/home/index.wxml-->
-<view class="model_change">
+<view class="model_change" bindtap="OpenList">
     <text>加油站</text>
     <image src="../../image/home/down.png" /> 
 </view>
+<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto">
+    <view wx:for="{{GasList}}" wx:key="{{index}}" wx:for-item="ListItem">
+        <view wx:for="{{ListItem}}" wx:key="{{index}}" class="GasItem" bindtap="getGasInfo" data-gasId = "{{item.id}}">
+            <view class="GasItem_name">
+                <view class="GasItem_name_left">
+                    {{item.name}}
+                </view>
+                <view class="GasItem_name_right">
+                    {{item.distance}}m
+                </view>
+            </view>
+            <view class="GasItem_location">
+                <image src="/image/home/location.png" />
+                {{item.address}}
+            </view>
+        </view>
+    </view>
+</scroll-view>
 <view class="Price">
     <row>
         <col span="8" offset="8" custom-class="price_style">当前市价</col>
         <col span="8" custom-class="price_style">本油站优惠价</col>
     </row>
 </view>
-<view class="Price" wx:for="{{Model}}" wx:key="{{index}}">
+<view class="Price" wx:for="{{gasInfo.oils}}" wx:key="{{index}}">
     <row>
-        <col span="8" custom-class="price_style">#92</col>
-        <col span="8" custom-class="price_style">-</col>
-        <col span="8" custom-class="price_style">-</col>
+        <col span="8" custom-class="price_style">#{{item.name}}</col>
+        <col span="8" custom-class="price_style">{{item.marketPrice}}元/升</col>
+        <col span="8" custom-class="price_style">{{item.price}}元/升 <image src="../../image/home/priceImg.png" /></col>
     </row>
 </view>
 <view class="line"></view>
@@ -24,8 +42,8 @@
         油号
     </view>
     <view class="change_item_right">
-        <view wx:for="{{Model}}" wx:key="{{index}}" class="change_item">
-            92#
+        <view wx:for="{{gasInfo.oils}}" wx:key="{{index}}" class="change_item {{curOilid == item.id ? 'curOil' : ''}}" bindtap="changeOil" data-oilId ="{{item.id}}">
+            {{item.name}}#
         </view>
     </view>
 </view>
@@ -36,8 +54,8 @@
         油枪
     </view>
     <view class="change_item_right">
-        <view wx:for="{{Model}}" wx:key="{{index}}" class="change_item">
-            92#
+        <view wx:for="{{curOil.oilGuns}}" wx:key="{{index}}" class="change_item" bindtap="changeOilGan" data-oilGanId ="{{item.id}}">
+            {{item.name}}
         </view>
     </view>
 </view>
@@ -49,11 +67,11 @@
     </view>
     <view class="price_right">
         <text>￥</text>
-        <input type="number" placeholder="请输入金额" />
+        <input type="number" placeholder="请加油完成后，输入油表金额" bindinput="inputPrice" value="{{Price}}"/>
     </view>
 
 </view>
 
-<view class="pay_btn">
+<view class="pay_btn {{curOil.length > 0 && curOilGanId.length > 0 && Price > 0}}"  bindtap="Pay">
     支付
 </view>

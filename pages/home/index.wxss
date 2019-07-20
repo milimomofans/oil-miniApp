@@ -21,7 +21,7 @@
   top: 35rpx;
 }
 .Price {
-  width: 750rpx;
+  width: 600rpx;
   margin: auto;
 }
 .price_style {
@@ -33,6 +33,12 @@
   text-align: center;
   height: 40rpx;
   line-height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.price_style image {
+  width: 28rpx;
+  height: 28rpx;
 }
 .line {
   width: 710rpx;
@@ -121,6 +127,7 @@
   margin-left: 20rpx;
 }
 .price .price_right input {
+  width: 400rpx;
   height: 100%;
   line-height: 80rpx;
   font-size: 30rpx;
@@ -143,4 +150,46 @@
   line-height: 88rpx;
   color: #ffffff;
   text-align: center;
+}
+.GasItem {
+  height: 98rpx;
+  box-sizing: border-box;
+  margin-left: 40rpx;
+  padding-right: 20rpx;
+  border-bottom: 2rpx solid #dddddd;
+}
+.GasItem_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.GasItem_name .GasItem_name_left {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.GasItem_name .GasItem_name_right {
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #bbbbbb;
+}
+.GasItem_location {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  margin-top: 10rpx;
+}
+.GasItem_location image {
+  width: 34rpx;
+  height: 34rpx;
+}
+.curOil {
+  background: #ff973d !important;
+  color: #ffffff !important;
 }

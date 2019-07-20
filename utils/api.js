@@ -43,9 +43,10 @@ function request({
 }
 
 module.exports = {
+    //微信登录
     wxLogin(data){
         // let url = baseUrl + 'wx/miniapp/authorize'
-        let url = 'http://oil.gyouzhe.cn/wx/miniapp/authorize'
+        let url = baseUrl + 'wx/miniapp/authorize'
         return request({
             url,
             contentType: 'application/x-www-form-urlencoded',
@@ -53,12 +54,43 @@ module.exports = {
             method:"POST",      
         })
     },
+    //获取用户的车牌手机号  
     getUserInfo(){
       let userId = wx.getStorageSync('userInfo').userId
-      let url = `http://oil.gyouzhe.cn/api/user/${userId}/info`
+      let url = baseUrl+`api/user/${userId}/info`
       return request({
         url,
         contentType:'application/x-www-form-urlencoded'
       })
-    }
+    },
+    //获取加油站列表
+    getGas(data){
+      let url = baseUrl+`api/gas`
+      return request({
+        url,
+        data,
+        contentType:"application/x-www-form-urlencoded"
+      })
+    },
+    //获取加油站的油号等信息
+    gasInfo(gasId){
+      let url = baseUrl + `api/gas/${gasId}`
+      return request({
+        url,
+        contentType:"application/x-www-form-urlencoded"
+      })
+    },
+    //用户下单
+    userTrade(params){
+      let url = baseUrl + `api/trade`
+      return request({
+        url,
+        data:params,
+        contentType:"application/x-www-form-urlencoded",
+        method:"POST"
+      })
+    },
+    //fail to do 订单列表获取
+    //fail to do 订单详情
+
 }

@@ -1,0 +1,42 @@
+<!--pages/orderDetail/index.wxml-->
+<view class="order_detail">
+    <view class="gas_name_time">
+        <view class="item_left">
+            中国石化加油站（三圣站）
+        </view>
+        <view class="item_right">
+            2019/6/28
+        </view>
+    </view>
+    <view class="order_info">
+        <view class="order_info_title">
+            <view>油号</view>
+            <view>油枪号</view>
+            <view>加油量</view>
+        </view>
+        <view class="order_detail_info">
+            <view>#95</view>
+            <view>6号油枪</view>
+            <view>44.8升</view>
+        </view>
+    </view>
+    <view class="order_price">
+        <view><text>金额：</text><text style="color:rgba(34,34,34,1);">300元</text></view>
+        <view><text>优惠：</text><text style="color:rgba(255,51,51,1);">-15元</text></view>
+    </view>
+    <view class="order_last_price">
+        <text>实际支付：</text><text class="price">285元</text>     
+    </view>
+    <view class="order_canvas">
+        <canvas canvas-id="Code" class="Canvas"></canvas>
+    </view>
+</view>
+<view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:710rpx;height:240rpx">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
