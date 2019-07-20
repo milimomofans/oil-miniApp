@@ -1,0 +1,12 @@
+<!--pages/serachOrder/index.wxml-->
+<view class="prompt">
+    仅限当日订单查询
+</view>
+<view class="time_select">
+    <view>
+        {{time}}
+    </view>
+    <view>
+        
+    </view>
+</view>

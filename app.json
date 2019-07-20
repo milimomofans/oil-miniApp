@@ -5,7 +5,8 @@
     "pages/order/index",
     "pages/login/index",
     "pages/editor/index",
-    "pages/orderDetail/index"
+    "pages/orderDetail/index",
+    "pages/serachOrder/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
