@@ -1,5 +1,7 @@
 // pages/home/index.js
 const api = require('../../utils/api')
+// const test = require('../../utils/test')
+import {Container} from '../../utils/test'
 let BaseObj = {
   data: {
     Model:[
@@ -21,6 +23,16 @@ let BaseObj = {
   },
   onLoad: function (options) {
     this.getAuthorization()
+    let arr = [1,2,3,4,5]
+    let a = new Container(arr),
+    iterator = a.getIterator()
+    while(iterator.haveNext()){
+      iterator.Next()
+      // console.log(iterator.Next())
+
+
+
+    }
   },
   onShow: function () {
 
@@ -102,10 +114,11 @@ let EventObj = {
     api.gasInfo(gasid).then(res=>{
       console.log(res)
       if(res.code == 200){
+        let curOil = res.data.oils[0]
         this.setData({
           gasInfo:res.data,
           showList:false,
-          curOil:res.data.oils[0]        //选择加油站的时候默认先选中第一种油号
+          curOil:res.data.oils[0],        //选择加油站的时候默认先选中第一种油号
         })
       }
     })
@@ -141,7 +154,7 @@ let EventObj = {
     api.userTrade(params).then(res=>{
       console.log(res)
       if(res.code == 200){
-      
+        
       }
     })
   }

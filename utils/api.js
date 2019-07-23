@@ -90,7 +90,21 @@ module.exports = {
         method:"POST"
       })
     },
-    //fail to do 订单列表获取
-    //fail to do 订单详情
+    //订单列表获取  订单详情
+    getOrderList(params){
+      let url = baseUrl + `api/trade`
+      return request({
+        data:params,
+        url
+        // contentType:"application/x-www-form-urlencoded"
+      })
+    },
+    getBanner(){
+      let url = baseUrl + `api/banner`
+      return request({
+        url,
+        contentType:"application/x-www-form-urlencoded"
+      })
+    }
 
 }

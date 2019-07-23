@@ -54,7 +54,7 @@
         油枪
     </view>
     <view class="change_item_right">
-        <view wx:for="{{curOil.oilGuns}}" wx:key="{{index}}" class="change_item" bindtap="changeOilGan" data-oilGanId ="{{item.id}}">
+        <view wx:for="{{curOil.oilGuns}}" wx:key="{{index}}" class="change_item {{item.id == curOilGanId ? 'curOil' : ''}}"  bindtap="changeOilGan" data-oilGanId ="{{item.id}}">
             {{item.name}}
         </view>
     </view>
