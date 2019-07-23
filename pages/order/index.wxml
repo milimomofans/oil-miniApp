@@ -18,7 +18,7 @@
                     加油量：{{item.oilNum}}升
                 </view>
                 <view class="order_detail_price">
-                    金额:{{}}元                        
+                    金额:{{item.price}}元                        
                 </view>
             </view>
         </view>

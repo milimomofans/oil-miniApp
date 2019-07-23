@@ -21,7 +21,15 @@ function request({
           success:(res=>{
             let {statusCode} = res
             if(statusCode == 200){
-              resolve(res.data)
+              console.log(res.data.code)
+              let {code} = res.data
+              if(code == 403){   //因为app.js已经进行过一次登陆,如果还是报错，则为未授权需要跳转到登陆页面授权
+                wx.navigateTo({
+                  url:"/pages/login/index"
+                })
+              }else{
+                resolve(res.data)
+              }
             }
           }),
           fail:(fail=>{

@@ -74,7 +74,7 @@
   flex-wrap: wrap;
 }
 .change_item {
-  width: 140rpx;
+  width: 200rpx;
   height: 60rpx;
   margin-right: 10rpx;
   background: #f8f8f8;
@@ -192,4 +192,7 @@
 .curOil {
   background: #ff973d !important;
   color: #ffffff !important;
+}
+.canBuy {
+  background: linear-gradient(135deg, #ff973d 0%, #ff3333 100%) !important;
 }

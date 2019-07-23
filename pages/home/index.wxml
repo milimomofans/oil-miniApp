@@ -72,6 +72,6 @@
 
 </view>
 
-<view class="pay_btn {{curOil.length > 0 && curOilGanId.length > 0 && Price > 0}}"  bindtap="Pay">
+<view class="pay_btn {{curOil && curOilGanId && Price ? 'canBuy' : ''}}"  bindtap="Pay">
     支付
 </view>

@@ -10,11 +10,13 @@
             </view>
             <view class="user_info_item" style="margin-top:10rpx">
                 <image class="item_image" src="/image/user/userPhone.png" />
-                <text>暂未设置</text>
+                <text wx:if="{{userInfo}}">{{userInfo.phone}}</text>
+                <text wx:if="{{!userInfo}}">暂未设置</text>
             </view>
             <view class="user_info_item">
                 <image class="item_image" src="/image/user/plateNumber.png" />
-                <text>暂未设置</text>
+                <text wx:if="{{userInfo}}">{{userInfo.carLicense}}</text>
+                <text wx:if="{{!userInfo}}">暂未设置</text>
             </view>
             
         </view>
@@ -24,11 +26,11 @@
     </view>
 </view>
 <view class="user_func">
-    <view class="user_func_item" style="border-bottom:1rpx solid rgba(245,245,245,1)">
+    <view class="user_func_item" style="border-bottom:1rpx solid rgba(245,245,245,1)" bindtap="goLinkHandler" data-type="historyOrder">
         <view>历史订单</view>
         <view><image src="/image/user/gotoArrow.png" /></view>
     </view>
-    <view class="user_func_item">
+    <view class="user_func_item" wx:if="{{haveGasOrder}}" bindtap="goLinkHandler" data-type="gasOrder">
         <view>油站订单</view>
         <image src="/image/user/gotoArrow.png" />
     </view>
