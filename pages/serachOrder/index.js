@@ -3,16 +3,18 @@ const api = require('../../utils/api')
 const util = require('../../utils/util')
 let baseObj = {
   data: {
-
+    gasOrder:[
+      1,2,3,4
+    ]
   },
   onLoad: function (options) {
 
   },
   onShow: function () {
 
-    this.setData({
-     time:util.formatTime(new Date()).noHour,//获取当前系统时间
-    })
+    // this.setData({
+    //  time:util.formatTime(new Date()).noHour,//获取当前系统时间
+    // })
   }
 }
 let apiObj = {}

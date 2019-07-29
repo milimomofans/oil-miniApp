@@ -3,7 +3,7 @@
     <text>加油站</text>
     <image src="../../image/home/down.png" /> 
 </view>
-<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto">
+<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:fixed;top:114rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
     <view wx:for="{{GasList}}" wx:key="{{index}}" wx:for-item="ListItem">
         <view wx:for="{{ListItem}}" wx:key="{{index}}" class="GasItem" bindtap="getGasInfo" data-gasId = "{{item.id}}">
             <view class="GasItem_name">

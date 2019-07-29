@@ -107,11 +107,21 @@ module.exports = {
         // contentType:"application/x-www-form-urlencoded"
       })
     },
+    //获取广告
     getBanner(){
       let url = baseUrl + `api/banner`
       return request({
         url,
         contentType:"application/x-www-form-urlencoded"
+      })
+    },
+    //获取油站订单
+    getGasOrder(gasId,params){
+      let url = baseUrl + `api/gas/${gasId}/order`
+      return request({
+        url,
+        contentType:'application/x-www-form-urlencoded',
+        data:params
       })
     }
 

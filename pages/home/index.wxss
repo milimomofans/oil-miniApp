@@ -143,7 +143,7 @@
   background: #cccccc;
   opacity: 1;
   border-radius: 8rpx;
-  margin: 72rpx auto 0 auto;
+  margin: 100rpx auto 0 auto;
   font-size: 32rpx;
   font-family: PingFang SC;
   font-weight: 400;

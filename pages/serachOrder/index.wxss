@@ -7,4 +7,45 @@
   font-family: PingFang SC;
   font-weight: 400;
   color: #ff3333;
+  text-align: center;
+}
+.gasOrder_item {
+  width: 710rpx;
+  height: 380rpx;
+  margin: 10rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx 10rpx 20rpx 40rpx;
+  background: white;
+}
+.item_head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #222222;
+  font-family: PingFang SC;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.item_head image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.item_attr {
+  display: flex;
+}
+.item_attr .item_attr_left {
+  width: 140rpx;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.item_attr .item_attr_right {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #222222;
 }

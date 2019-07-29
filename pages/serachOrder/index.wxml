@@ -2,11 +2,43 @@
 <view class="prompt">
     仅限当日订单查询
 </view>
-<view class="time_select">
+<!--<view class="time_select">
     <view>
         {{time}}
     </view>
     <view>
         
+    </view>
+</view> -->
+<view class="gas_orders"> 
+    <view wx:for="{{gasOrder}}" wx:key="{{index}}" class="gasOrder_item">
+        <view class="item_head">
+            <view>订单号055</view>
+            <image src="../../image/user/gotoArrow.png" />
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">交易时间</view>
+            <view class="item_attr_right">2019/6/28 16:31:55</view>
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">交易车牌</view>
+            <view class="item_attr_right">川ANB888</view>
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">交易用户</view>
+            <view class="item_attr_right">1388888888</view>
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">油枪号</view>
+            <view class="item_attr_right">6号油枪</view>
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">油号</view>
+            <view class="item_attr_right">95#</view>
+        </view>
+        <view class="item_attr">
+            <view class="item_attr_left">加油金额</view>
+            <view class="item_attr_right"><text style="color:#FF3333">300元</text></view>
+        </view>
     </view>
 </view>

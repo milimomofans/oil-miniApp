@@ -1,7 +1,5 @@
 // pages/home/index.js
 const api = require('../../utils/api')
-// const test = require('../../utils/test')
-import {Container} from '../../utils/test'
 let BaseObj = {
   data: {
     Model:[
@@ -23,16 +21,6 @@ let BaseObj = {
   },
   onLoad: function (options) {
     this.getAuthorization()
-    let arr = [1,2,3,4,5]
-    let a = new Container(arr),
-    iterator = a.getIterator()
-    while(iterator.haveNext()){
-      iterator.Next()
-      // console.log(iterator.Next())
-
-
-
-    }
   },
   onShow: function () {
 
@@ -56,7 +44,6 @@ let EventObj = {
   GetList(){
     let {ListParams,GasList} = this.data
     api.getGas(ListParams).then(res=>{
-      console.log(res)
       if(res.code == 200){
         let {data} = res,
         str = `GasList[${ListParams.pageNo-1}]`
@@ -71,6 +58,15 @@ let EventObj = {
         }
       }
     })
+  },
+  scrollTolower(){
+    if(this.data.haveNext){
+      let {ListParams} = this.data
+      this.setData({
+        'ListParams.pageNo':ListParams.pageNo+1
+      })
+      this.GetList()
+    }
   },
   /**
    * 查看经纬度授权
@@ -110,16 +106,25 @@ let EventObj = {
    */
   getGasInfo(e){
     let {gasid} = e.currentTarget.dataset
-    console.log(e)
+    console.log()
     api.gasInfo(gasid).then(res=>{
       console.log(res)
       if(res.code == 200){
-        let curOil = res.data.oils[0]
-        this.setData({
+        let curOil = res.data.oils[0],
+        setObj = {
           gasInfo:res.data,
           showList:false,
-          curOil:res.data.oils[0],        //选择加油站的时候默认先选中第一种油号
-        })
+          curOil,
+          curOilid:curOil.id
+        }
+        /**
+         * 如果有油枪型号则默认选择第一个油枪
+         */
+        if(curOil.oilGuns && curOil.oilGuns.length > 0){
+          setObj.curOilGanId = curOil.oilGuns[0].id
+        }
+
+        this.setData(setObj)
       }
     })
   },
