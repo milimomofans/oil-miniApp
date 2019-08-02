@@ -17,17 +17,38 @@ let BaseObj = {
     showList:false,
     curOil:'',
     curOilGanId:'',
-    Price:""
+    Price:"",
+    falseData:[
+      1,2,3
+    ]
   },
   onLoad: function (options) {
     this.getAuthorization()
   },
   onShow: function () {
-
+    // this.getUserInfo()
   },
 }
 let ApiObj = {
-  
+  getUserInfo(){
+    api.getUserInfo().then(res=>{
+      console.log(res)
+      if(!checkIsNull(res.data)){
+        wx.showModal({
+          content:"请完善个人资料，更多优惠等着您！",
+          showCancel:false,
+          confirmText:"前往",
+          confirmColor:"#FF973D",
+          success:()=>{
+            wx.navigateTo({
+              url:"/pages/editor/index"
+            })
+            console.log('点击了前往')
+          }
+        })
+      }
+    })
+  }
 }
 let EventObj = {
   OpenList(){
@@ -110,12 +131,15 @@ let EventObj = {
     api.gasInfo(gasid).then(res=>{
       console.log(res)
       if(res.code == 200){
+        console.log(res.data)
         let curOil = res.data.oils[0],
+        curName = res.data.name.replace(/[\r\n]/g,""),
         setObj = {
           gasInfo:res.data,
           showList:false,
           curOil,
-          curOilid:curOil.id
+          curOilid:curOil.id,
+          curGasName:curName
         }
         /**
          * 如果有油枪型号则默认选择第一个油枪
@@ -196,5 +220,16 @@ function LocationHandler(){
     })
   })
 }
+
+function checkIsNull(data){
+  if(!data) return false
+
+  let checkKeys = ['carLicense','phone']
+  return checkKeys.every(item=>{
+    return data[item] && data[item].length > 0
+  })
+
+}
+
 let PageObj = Object.assign(BaseObj,ApiObj,EventObj)
 Page(PageObj)

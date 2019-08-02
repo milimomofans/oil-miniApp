@@ -123,6 +123,28 @@ module.exports = {
         contentType:'application/x-www-form-urlencoded',
         data:params
       })
+    },
+    //发送短信验证码
+    sendVerifyCode(phone){
+      let url = baseUrl + `api/sms/sendVerifyCode`
+      return request({
+        url,
+        data:{
+          phone
+        },
+        contentType:"application/x-www-form-urlencoded",
+        method:"POST"
+      })
+    },
+    submitUserInfo(params){
+      let userId = wx.getStorageSync('userInfo').userId
+      let url = baseUrl + `api/user/${userId}/info`
+      return request({
+        url,
+        data:params,
+        method:"POST",
+        contentType:"application/x-www-form-urlencoded"
+      })
     }
 
 }

@@ -1,12 +1,14 @@
 // pages/editor/index.js
 const api = require('../../utils/api')
+let _check = new Check()
 let baseObj = {
   data: {
     params:{
       carId:'',
       mobile:'',
-      code:''
-    }
+      code:'',
+    },
+    count:0
   },
   onLoad: function (options) {
     
@@ -28,10 +30,34 @@ let eventObj = {
   },
   getCode(){
     let check = new Check(),
-    result = check.checkMobile.call(this)
-    if(result){
-      console.log('可以发送验证码了')
+    {count,params} = this.data
+    if(count > 0){return} 
+    if(check.checkMobile.call(this)){
+      console.log('进来了')
+      api.sendVerifyCode(params.mobile).then(res=>{
+        if(res.code == 200){
+          this.countDown()
+        }else{
+          wx.showToast({
+            title:`${res.msg}`,
+            icon:"none",
+            duration:1500
+          })
+        }  
+      })
     }
+  },
+  countDown(){
+      let count = 61
+      let timer = setInterval(()=>{
+        count -- 
+        if(count <= 0){ 
+          clearInterval(timer)
+        }
+        this.setData({
+          count
+        })
+      },1000)
   },
   submit(){
     let {params} =this.data,
@@ -40,15 +66,44 @@ let eventObj = {
     params.carId.length > 0 && params.mobile.length > 0 && params.code.length > 0 ? canSumbit = true : ''
 
     if(canSumbit){
-      let check = new Check()
-      for(var i in check){
-        result = check[i].call(this)
+      for(var i in _check){
+        result = _check[i].call(this)
         if(!result){
           break
         }
       }
-      
     }
+
+    if(result){
+      let apiParams = {
+        phone:params.phone,
+        carLicense:params.carId,
+        verifyCode:params.code
+      }
+      api.submitUserInfo(apiParams).then(res=>{
+        if(res.code == 200){
+          wx.showToast({
+            title:"修改成功！",
+            icon:"none",
+            duration:1500,
+            success:()=>{
+              setTimeout(()=>{
+                wx.navigateBack({
+                  delta:1
+                })
+              },1500)
+            }
+          }) 
+        }else{
+          wx.showToast({
+            title:`${res.msg}`,
+            icon:"none",
+            duration:1500
+          })
+        }
+      })
+    }
+
   }
 }
 let apiObj = {}

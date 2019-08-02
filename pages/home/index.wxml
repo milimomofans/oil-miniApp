@@ -1,9 +1,21 @@
 <!--pages/home/index.wxml-->
-<view class="model_change" bindtap="OpenList">
-    <text>加油站</text>
-    <image src="../../image/home/down.png" /> 
+<view class="banner">
+    <image src="../../image/home/homeBanner.png" />
 </view>
-<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:fixed;top:114rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
+
+<view class="model_change" bindtap="OpenList">
+    <text wx:if="{{!curGasName}}" style="line-height:100rpx">加油站</text>
+    <view class="change_address" wx:else>
+        <view class="gasName">{{curGasName}}</view>
+        <view class="gasAddress">
+            <image src="../../image/home/location.png" />
+            <view>{{gasInfo.address}}</view>
+        </view>
+    </view>
+
+    <image class="arrow" src="{{showList ? '../../image/home/up.png' : '../../image/home/down.png'}} " /> 
+</view>
+<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:fixed;top:365rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
     <view wx:for="{{GasList}}" wx:key="{{index}}" wx:for-item="ListItem">
         <view wx:for="{{ListItem}}" wx:key="{{index}}" class="GasItem" bindtap="getGasInfo" data-gasId = "{{item.id}}">
             <view class="GasItem_name">
@@ -27,42 +39,44 @@
         <col span="8" custom-class="price_style">本油站优惠价</col>
     </row>
 </view>
-<view class="Price" wx:for="{{gasInfo.oils}}" wx:key="{{index}}">
+<view class="Price" wx:for="{{gasInfo.oils ? gasInfo.oils : falseData}}" wx:key="{{index}}">
     <row>
-        <col span="8" custom-class="price_style">#{{item.name}}</col>
-        <col span="8" custom-class="price_style">{{item.marketPrice}}元/升</col>
-        <col span="8" custom-class="price_style">{{item.price}}元/升 <image src="../../image/home/priceImg.png" /></col>
+        <col span="8" custom-class="price_style"><text wx:if="{{item.name}}">#{{item.name}}</text><text style="text-align:center" wx:else>-</text></col>
+        <col span="8" custom-class="price_style"><text wx:if="{{item.marketPrice}}">{{item.marketPrice}}元/升</text><text style="text-align:center" wx:else>-</text></col>
+        <col span="8" custom-class="price_style"><text wx:if="{{item.price}}">{{item.price}}元/升</text><text style="text-align:center" wx:else>-</text> <image wx:if="{{item.price}}" src="../../image/home/priceImg.png" /></col>
     </row>
 </view>
 <view class="line"></view>
 
 <view class="change_items">
     <view class="change_item_left">
-        <image src="../../image/home/fuel.png" />
+        <image src="{{curGasName ? '../../image/home/L_fuel.png' : '../../image/home/fuel.png'}} " />
         油号
     </view>
     <view class="change_item_right">
-        <view wx:for="{{gasInfo.oils}}" wx:key="{{index}}" class="change_item {{curOilid == item.id ? 'curOil' : ''}}" bindtap="changeOil" data-oilId ="{{item.id}}">
-            {{item.name}}#
+        <view wx:for="{{gasInfo.oils ? gasInfo.oils : falseData}}" wx:key="{{index}}" class="change_item" >
+            <text class="{{curOilid == item.id ? 'curOil' : ''}}" wx:if="{{item.name}}" bindtap="changeOil" data-oilId ="{{item.id}}">{{item.name}}#</text>
+            <text wx:else>-</text>
         </view>
     </view>
 </view>
 
 <view class="change_items">
     <view class="change_item_left">
-        <image src="../../image/home/fuel.png" />
+        <image src="{{curGasName ? '../../image/home/L_oilGun.png' : '../../image/home/oilGun.png'}}" />
         油枪
     </view>
     <view class="change_item_right">
-        <view wx:for="{{curOil.oilGuns}}" wx:key="{{index}}" class="change_item {{item.id == curOilGanId ? 'curOil' : ''}}"  bindtap="changeOilGan" data-oilGanId ="{{item.id}}">
-            {{item.name}}
+        <view wx:for="{{curOil.oilGuns ? curOil.oilGuns : falseData}}" wx:key="{{index}}" class="change_item "  bindtap="changeOilGan" data-oilGanId ="{{item.id}}">
+           <text class="{{item.id == curOilGanId ? 'curOil' : ''}}" wx:if="{{item.name}}">{{item.name}}</text>
+           <text wx:else>-</text>
         </view>
     </view>
 </view>
 
 <view class="price">
     <view class="price_left">
-        <image src="/image/home/oilGun.png" />
+        <image src="/image/home/moeny.png" />
         <text>金额</text>
     </view>
     <view class="price_right">
@@ -75,3 +89,15 @@
 <view class="pay_btn {{curOil && curOilGanId && Price ? 'canBuy' : ''}}"  bindtap="Pay">
     支付
 </view>
+
+
+<popup show="{{needFill}}">
+    <view class="prompt_userInfo">
+        <view class="prompt_userInfo">
+            请完善个人资料，更多优惠等着您！
+        </view>
+        <view class="prompt_userInfo_sure">
+            前往
+        </view>
+    </view>
+</popup>

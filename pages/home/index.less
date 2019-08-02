@@ -6,12 +6,10 @@
     font-size:28rpx;
     font-family:PingFang SC;
     font-weight:400;
-    line-height:48px;
     color:rgba(240,170,59,1);
     border:2rpx solid rgba(245,191,71,1);
     border-radius:8rpx;
-    line-height: 100rpx;
-    image{
+    .arrow{
         width: 32rpx;
         height: 32rpx;
         position: absolute;
@@ -20,6 +18,15 @@
     }
     margin: 0 auto 20rpx auto;
     
+}
+.banner{
+    image{
+        width:710rpx;
+        height:240rpx;
+        margin:auto;
+        display: block;
+    }
+    margin-bottom:20rpx;
 }
 .Price{
     width: 600rpx;
@@ -53,6 +60,7 @@
     margin: auto;
     box-sizing: border-box;
     padding: 16rpx;
+    align-items: center;
 }
 .change_item_left{
     display: flex;
@@ -75,7 +83,7 @@
     flex-wrap: wrap;
 }
 .change_item{
-    width: 200rpx;
+    width: 160rpx;
     height: 60rpx;
     margin-right: 10rpx;
     background:rgba(248,248,248,1);
@@ -86,6 +94,11 @@
     font-weight:bold;
     color:rgba(85,85,85,1);
     margin-top: 10rpx;
+    text{
+        width:160rpx;
+        height:60rpx;
+        display:block;
+    }
 }
 .price{
     padding-top: 30rpx;
@@ -196,4 +209,32 @@
 }
 .canBuy{
     background:linear-gradient(135deg,rgba(255,151,61,1) 0%,rgba(255,51,51,1) 100%) !important;
+}
+.change_address{
+    display: flex;
+    flex-direction:column;
+    padding-top:8rpx;
+    .gasName{
+        font-size:32rpx;
+        font-family:PingFang SC;
+        font-weight:bold;
+        color:rgba(34,34,34,1);
+    }
+    .gasAddress{
+        margin-top:6rpx;
+        display: flex;
+        align-items: center;
+        text-align:center;
+        justify-content: center;
+        font-size:24rpx;
+        font-family:PingFang SC;
+        font-weight:400;
+        color:rgba(85,85,85,1);
+        image{
+            width:32rpx;
+            height:32rpx;
+            margin:auto 5rpx;
+        }
+    }
+    height:100%;
 }

@@ -27,6 +27,7 @@
   font-weight: 400;
   color: #f0aa3b;
   margin-right: 40rpx;
+  font-size: 28rpx;
 }
 .input_view {
   background: white;
@@ -45,5 +46,5 @@
   margin: 120rpx auto 0 auto;
 }
 .submit {
-  background: linear-gradient(135deg, #f5bf47 0%, #f0aa3b 100%) !important;
+  background: linear-gradient(135deg, #ff973d 0%, #ff3333 100%) !important;
 }
