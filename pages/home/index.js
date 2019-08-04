@@ -26,7 +26,7 @@ let BaseObj = {
     this.getAuthorization()
   },
   onShow: function () {
-    // this.getUserInfo()
+    this.getUserInfo()
   },
 }
 let ApiObj = {

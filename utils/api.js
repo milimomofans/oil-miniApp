@@ -1,4 +1,4 @@
-let baseUrl = 'http://oil.gyouzhe.cn/'
+let baseUrl = 'https://www.gyouzhe.com/'
 function request({
     url=url,
     method="GET",

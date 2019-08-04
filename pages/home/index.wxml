@@ -76,7 +76,7 @@
 
 <view class="price">
     <view class="price_left">
-        <image src="/image/home/moeny.png" />
+        <image src="{{curGasName ? '../../image/home/L_money.png':'../../image/home/money.png'}}" />
         <text>金额</text>
     </view>
     <view class="price_right">
