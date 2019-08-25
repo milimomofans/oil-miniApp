@@ -17,7 +17,6 @@ let eventObj = {
     if(result.detail.errMsg == 'getUserInfo:ok'){
       wx.login({
         success:(res)=>{
-          console.log(result)
           let {code} = res,
           {iv,encryptedData,rawData,signature} = result.detail,
           apiParams = {
@@ -27,6 +26,7 @@ let eventObj = {
             rawData,
             signature
           }
+          console.log(apiParams,'----------------11111111')
           api.wxLogin(apiParams).then(res=>{
             console.log(res)
             if(res.code == 200){

@@ -30,7 +30,7 @@
         <view>历史订单</view>
         <view><image src="/image/user/gotoArrow.png" /></view>
     </view>
-    <view class="user_func_item" wx:if="{{haveGasOrder}}" bindtap="goLinkHandler" data-type="gasOrder">
+    <view class="user_func_item" wx:if="{{haveGasOrder}}" bindtap="goLinkHandler" data-type="serachOrder">
         <view>油站订单</view>
         <image src="/image/user/gotoArrow.png" />
     </view>

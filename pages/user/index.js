@@ -45,7 +45,7 @@ let apiObj = {
           linkUrl = '/pages/order/index'
           break;
       case 'gasOrder':
-          linkUrl = '/pages/gasOrder/index'
+          linkUrl = '/pages/serachOrder/index'
           break;    
     }
     wx.navigateTo({

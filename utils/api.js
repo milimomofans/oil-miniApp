@@ -1,4 +1,4 @@
-let baseUrl = 'http://www.gyouzhe.com/'
+let baseUrl = 'https://www.gyouzhe.com/'
 function request({
     url=url,
     method="GET",
@@ -17,8 +17,9 @@ function request({
             'Accept':"application/json",
             token:token
           },
-          data,
+          data:data,
           success:(res=>{
+            console.log(data,'111111111111111111111111111111111')
             let {statusCode} = res
             if(statusCode == 200){
               console.log(res.data.code)
@@ -55,6 +56,7 @@ module.exports = {
     wxLogin(data){
         // let url = baseUrl + 'wx/miniapp/authorize'
         let url = baseUrl + 'wx/miniapp/authorize'
+        console.log(data,'22222222222222')
         return request({
             url,
             contentType: 'application/x-www-form-urlencoded',

@@ -76,7 +76,7 @@ let eventObj = {
 
     if(result){
       let apiParams = {
-        phone:params.phone,
+        phone:params.mobile,
         carLicense:params.carId,
         verifyCode:params.code
       }
