@@ -197,6 +197,7 @@
   font-family: PingFang SC;
   font-weight: 400;
   margin-top: 10rpx;
+  color: black;
 }
 .GasItem_location image {
   width: 34rpx;

@@ -1,4 +1,5 @@
 let baseUrl = 'https://www.gyouzhe.com/'
+// let baseUrl = `https://oil.gyouzhe.cn/`
 function request({
     url=url,
     method="GET",
@@ -147,6 +148,7 @@ module.exports = {
         method:"POST",
         contentType:"application/x-www-form-urlencoded"
       })
-    }
+    },
+    
 
 }

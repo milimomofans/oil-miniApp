@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.3",
-	"appid": "wxb439ac9c8eaaccba",
+	"appid": "wx9e98d7ecb8b9da6b",
 	"projectname": "miniprogram-1",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -45,6 +45,10 @@
 		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -103,6 +107,14 @@
 					"id": -1,
 					"name": "pages/editor/index",
 					"pathName": "pages/editor/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/serachOrder/index",
+					"pathName": "pages/serachOrder/index",
+					"query": "gasId=7",
 					"scene": null
 				}
 			]

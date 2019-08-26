@@ -12,10 +12,8 @@
             <view>{{gasInfo.address}}</view>
         </view>
     </view>
-
     <image class="arrow" src="{{showList ? '../../image/home/up.png' : '../../image/home/down.png'}} " /> 
-</view>
-<scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:fixed;top:365rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
+    <scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:absolute;top:100rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
     <view wx:for="{{GasList}}" wx:key="{{index}}" wx:for-item="ListItem">
         <view wx:for="{{ListItem}}" wx:key="{{index}}" class="GasItem" bindtap="getGasInfo" data-gasId = "{{item.id}}">
             <view class="GasItem_name">
@@ -32,7 +30,9 @@
             </view>
         </view>
     </view>
-</scroll-view>
+    </scroll-view>
+</view>
+
 <view class="Price">
     <row>
         <col span="8" offset="8" custom-class="price_style">当前市价</col>

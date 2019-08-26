@@ -1,3 +1,6 @@
+page {
+  background: #f5f5f5;
+}
 .prompt {
   width: 100vw;
   height: 40rpx;
