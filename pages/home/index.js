@@ -153,15 +153,17 @@ let EventObj = {
     })
   },
   changeOil(e){ //选择油号
-    let {oilid} = e.currentTarget.dataset
+    let {oilid,curoil} = e.currentTarget.dataset
     this.setData({
-      curOilid:oilid
+      curOilid:oilid,
+      curOil:curoil,
+      curOilGanId:curoil.oilGuns[0].id
     })
   },
   changeOilGan(e){ //选择油枪
     let {oilganid} = e.currentTarget.dataset
     this.setData({
-      curOilGanId:oilganid
+      curOilGanId:oilganid,
     })
   },
   inputPrice(e){  //输入价格事件
