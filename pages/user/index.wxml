@@ -1,5 +1,5 @@
-<!--pages/user/index.wxml-->
-<view class="user_head" style="background:url(../../image/user/background.png)">
+<!--pages/user/index.wxml  style="background:url(../../image/user/background.png)"-->
+<view class="user_head">
     <view class="user_info" >
         <view class="user_info_left">
             <image src="{{noLogin ? '../../image/user/noLogin.png' : user.avater}}" bindtap="LoginBtn"/>
