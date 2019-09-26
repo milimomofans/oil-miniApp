@@ -1,4 +1,17 @@
 <!--pages/home/index.wxml-->
+<wxs module='homeFunc'>
+   var distance = function(num){
+       var newNum = num - 0
+       var returnStr = newNum
+       if(newNum > 1000){
+           returnStr = (newNum/1000).toFixed(2) + 'k'
+       }
+       return returnStr
+    } 
+    module.exports = {
+        dis:distance
+    }
+</wxs>
 <view class="banner">
     <image src="../../image/home/homeBanner.png" />
 </view>
@@ -13,7 +26,7 @@
         </view>
     </view>
     <image class="arrow" src="{{showList ? '../../image/home/up.png' : '../../image/home/down.png'}} " /> 
-    <scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:absolute;top:100rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
+    <scroll-view wx:if="{{showList}}" scroll-y="true" style="height:500rpx;width:710rpx;margin:auto;position:absolute;top:105rpx;left:0;right:0;z-index:100;background:white" bindscrolltolower="scrollTolower">
     <view wx:for="{{GasList}}" wx:key="{{index}}" wx:for-item="ListItem">
         <view wx:for="{{ListItem}}" wx:key="{{index}}" class="GasItem" bindtap="getGasInfo" data-gasId = "{{item.id}}">
             <view class="GasItem_name">
@@ -21,7 +34,7 @@
                     {{item.name}}
                 </view>
                 <view class="GasItem_name_right">
-                    {{item.distance}}m
+                    {{homeFunc.dis(item.distance)}}m
                 </view>
             </view>
             <view class="GasItem_location">
@@ -95,11 +108,11 @@
         <input type="number" placeholder="请加油完成后，输入油表金额" bindinput="inputPrice" value="{{Price}}"/>
     </view>
 
-</view>
+    </view>
 
-<view class="pay_btn {{curOil && curOilGanId && Price ? 'canBuy' : ''}}"  bindtap="Pay">
-    支付
-</view>
+    <view class="pay_btn {{curOil && curOilGanId && Price ? 'canBuy' : ''}}"  bindtap="Pay">
+        支付
+    </view>
 
 
 <popup show="{{needFill}}">

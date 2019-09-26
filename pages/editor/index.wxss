@@ -19,7 +19,7 @@
   line-height: 100rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
-  color: #cccccc;
+  color: #222222;
 }
 .input_item .code_btn {
   margin-left: auto;

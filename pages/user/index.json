@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "popup":"/miniprogram_npm/vant-weapp/popup/index"
+  }
 }

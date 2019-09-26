@@ -83,7 +83,7 @@
   flex-wrap: wrap;
 }
 .change_item {
-  width: 160rpx;
+  width: 140rpx;
   height: 60rpx;
   margin-right: 10rpx;
   background: #f8f8f8;
@@ -94,11 +94,13 @@
   font-weight: bold;
   color: #555555;
   margin-top: 10rpx;
+  border-radius: 8rpx;
 }
 .change_item text {
-  width: 160rpx;
+  width: 140rpx;
   height: 60rpx;
   display: block;
+  border-radius: 8rpx;
 }
 .price {
   padding-top: 30rpx;
@@ -112,6 +114,7 @@
   flex-direction: column;
   align-items: center;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 .price .price_left image {
   width: 40rpx;
@@ -147,8 +150,8 @@
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #cccccc;
-  text-align: center;
+  color: #222222;
+  text-align: right;
   margin-right: 20rpx;
 }
 .pay_btn {

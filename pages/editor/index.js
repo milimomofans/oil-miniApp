@@ -1,5 +1,6 @@
 // pages/editor/index.js
 const api = require('../../utils/api')
+const app = getApp()
 let _check = new Check()
 let baseObj = {
   data: {
@@ -11,7 +12,17 @@ let baseObj = {
     count:0
   },
   onLoad: function (options) {
-    
+    let {haveData} = options
+    if(haveData){
+      let {params} = this.data,
+      userInfo = app.globalData.userInfo
+      console.log(app.globalData)
+      params.mobile = userInfo.phone
+      params.carId = userInfo.carLicense
+      this.setData({
+        params
+      })
+    }
   },
   onReady: function () {
 

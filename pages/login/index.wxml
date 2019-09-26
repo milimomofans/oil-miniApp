@@ -7,3 +7,6 @@
     <view class="wechat_inst">获得您的公开信息（昵称、头像等）</view>
 </view>
 <button class="login_btn" open-type="getUserInfo" bindgetuserinfo="wxLogin">微信授权</button>
+<view class="noLogin" bindtap="noLogin">
+    暂不登录
+</view>

@@ -5,7 +5,7 @@
             {{params.gasName}}
         </view>
         <view class="item_right">
-            {{params.payTime}}
+            {{params.created}}
         </view>
     </view>
     <view class="order_info">

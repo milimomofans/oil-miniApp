@@ -42,6 +42,11 @@ let eventObj = {
         }
       })
     }
+  },
+  noLogin(){
+    wx.navigateBack({
+      delta:1
+    })
   }
 }
 let pageObj = Object.assign(baseObj,apiObj,eventObj)

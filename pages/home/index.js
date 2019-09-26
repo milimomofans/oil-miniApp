@@ -28,9 +28,17 @@ let BaseObj = {
   onShow: function () {
     this.getUserInfo()
   },
+  onHide(){
+    this.setData({
+      haveNext:true,
+      showList:false
+    })
+  }
 }
 let ApiObj = {
   getUserInfo(){
+    let userInfo = wx.getStorageSync('userInfo')
+    if(userInfo == '') return
     api.getUserInfo().then(res=>{
       console.log(res)
       if(!checkIsNull(res.data)){
@@ -53,13 +61,13 @@ let ApiObj = {
 let EventObj = {
   OpenList(){
     let {GasList} = this.data
+    
     if(GasList.length == 0){
       this.GetList()
     }
     this.setData({
       showList:!this.data.showList
     })
-    
   },
   //获取油站列表
   GetList(){
@@ -172,20 +180,39 @@ let EventObj = {
     })
   },
   Pay(){  //fail to do 需要支付接口一套流程
-    let {curOil,curOilGanId,Price,oilId} = this.data
+    let {curOil,curOilGanId,Price,gasInfo} = this.data
     if(curOil.length > 0 && curOilGanId.length > 0 && Price > 0){
       return false
     }
     let params = {
       gasId:curOil.id,
-      oilId:oilId,
+      oilId:gasInfo.id,
       gunId:curOilGanId,
       amount:Price
     }
     api.userTrade(params).then(res=>{
       console.log(res)
       if(res.code == 200){
-        
+        let {data} = res
+        wx.showToast({
+          title:"支付成功！",
+          icon:"none",
+          duration:800,
+          success:()=>{
+            setTimeout(() => {
+              wx.navigateTo({
+                url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+              }) 
+            }, 800);
+          }
+        })
+      
+      }else{ 
+        wx.showToast({
+          title:`${res.msg}`,
+          icon:"none",
+          duration:1500
+        })
       }
     })
   }

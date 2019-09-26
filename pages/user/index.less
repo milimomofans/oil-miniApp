@@ -40,16 +40,24 @@ page{
                 font-size:28rpx;
                 font-family:PingFang SC;
                 font-weight:400;
-                color:rgba(34,34,34,1);
+                color:white;
+                margin-left:10rpx;
             }
         }
     }
 
 }
+.noLogin_prompt{
+    font-size:40rpx;
+    font-family:PingFang SC;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    margin-top:24rpx;
+}
 .editor{
     width: 120rpx;
     height:60rpx;
-    background:rgba(226,108,63,1);
+    background:rgba(255,151,61,1);
     border-radius:8rpx;
     text-align: center;
     line-height: 60rpx;
@@ -69,6 +77,7 @@ page{
     margin-left: 40rpx;
     padding-right: 20rpx;
     box-sizing: border-box;
+    color:rgba(255,255,255,1);
     view{
         font-size:30rpx;
         font-family:PingFang SC;
@@ -85,4 +94,60 @@ page{
     border-bottom: 2rpx solid rgba(245,245,245,1);
     background: white;
     margin-top: 40rpx;
+}
+.loginPrompt{
+    width:590rpx;
+    height:360rpx;
+    background:rgba(255,255,255,1);
+    padding-top:80rpx;
+    position:relative;
+}
+.login_title{
+    font-size:36rpx;
+    font-family:PingFang SC;
+    font-weight:bold;
+    color:rgba(34,34,34,1);
+}
+.login_text{
+    margin-top:10rpx;
+    font-size:28rpx;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.login_btn{
+    height:100rpx;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    display: flex;
+    align-items: center;
+    .noLogin{
+        width:294rpx;
+        height:100%;
+        line-height:100rpx;
+        text-align:center;
+        font-size:26rpx;
+        font-family:PingFang SC;
+        font-weight:bold;
+        color:rgba(153,153,153,1);
+    }
+    .line{
+        width:2rpx;
+        height:60rpx;
+        background:rgba(238,238,238,1);
+    }
+    .login{
+        width:294rpx;
+        height:100%;
+        line-height:100rpx;
+        text-align:center;
+        font-size:26rpx;
+        font-family:PingFang SC;
+        font-weight:bold;
+        color:rgba(255,151,61,1);
+    }
+}
+button::after{
+    border:0;
 }

@@ -46,3 +46,17 @@
 .login_btn ::after {
   border: 0;
 }
+.noLogin {
+  width: 710rpx;
+  height: 88rpx;
+  background: #cccccc;
+  opacity: 1;
+  border-radius: 8rpx;
+  margin: 30rpx auto 0 auto;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 88rpx;
+  color: #ffffff;
+  text-align: center;
+}

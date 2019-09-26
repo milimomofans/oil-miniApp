@@ -32,7 +32,7 @@ let apiObj = {
     let {params} = this.data
     api.getOrderList(params).then(res=>{
       if(res.code == 200){
-        if(res.data.length > 0){
+        if(res.data.data.length > 0){
           let setStr = `orderList[${params.pageNo-1}]`
           this.setData({
             [setStr]:res.data.data
