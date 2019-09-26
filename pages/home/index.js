@@ -185,8 +185,8 @@ let EventObj = {
       return false
     }
     let params = {
-      gasId:curOil.id,
-      oilId:gasInfo.id,
+      gasId:gasInfo.id,
+      oilId:curOil.id,
       gunId:curOilGanId,
       amount:Price
     }
