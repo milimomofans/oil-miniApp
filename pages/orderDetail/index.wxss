@@ -12,7 +12,7 @@ page {
   padding: 0 40rpx;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 .gas_name_time .item_left {
@@ -20,7 +20,6 @@ page {
   font-family: PingFang SC;
   font-weight: bold;
   color: #222222;
-  width: 310rpx;
 }
 .gas_name_time .item_right {
   font-size: 28rpx;

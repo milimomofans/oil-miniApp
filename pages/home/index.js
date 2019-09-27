@@ -243,7 +243,7 @@ let EventObj = {
         }
       })
 
-    }, 2000);
+    }, 500);
   }, 
   Initialize(){
     this.setData({
