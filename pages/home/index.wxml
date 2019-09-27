@@ -105,7 +105,7 @@
     </view>
     <view class="price_right">
         <text>￥</text>
-        <input type="number" placeholder="请加油完成后，输入油表金额" bindinput="inputPrice" value="{{Price}}"/>
+        <input type="number" placeholder="请加油完成后，输入油表金额" bindinput="inputPrice" value="{{Price}}" disabled="{{curOil && curOilGanId ? false : true}}"/>
     </view>
 
     </view>
