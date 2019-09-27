@@ -66,6 +66,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100rpx;
   text-align: center;
   font-size: 28rpx;
   font-family: PingFang SC;
@@ -108,6 +109,7 @@
   display: flex;
   flex-direction: row;
   margin: 0 40rpx;
+  justify-content: space-between;
 }
 .price .price_left {
   display: flex;
@@ -127,7 +129,7 @@
   color: #888888;
 }
 .price .price_right {
-  width: 590rpx;
+  width: 480rpx;
   height: 80rpx;
   display: flex;
   flex-direction: row;
@@ -160,7 +162,7 @@
   background: #cccccc;
   opacity: 1;
   border-radius: 8rpx;
-  margin: 100rpx auto 0 auto;
+  margin: 24rpx auto 0 auto;
   font-size: 32rpx;
   font-family: PingFang SC;
   font-weight: 400;
@@ -241,4 +243,30 @@
   width: 32rpx;
   height: 32rpx;
   margin: auto 5rpx;
+}
+.prompt {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #bbbbbb;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.block_view {
+  height: 100rpx;
+}
+.discounts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #555555;
+  margin-right: 40rpx;
+  margin-top: 10rpx;
+}
+.discounts image {
+  width: 28rpx;
+  height: 28rpx;
 }
