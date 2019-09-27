@@ -186,6 +186,11 @@ let EventObj = {
       clearTimeout(this.timer)
       this.timer = null
     } 
+    if(value == ''){
+      return this.setData({
+        total:''
+      })
+    }
     this.getTotal(value)
   },
   Pay(){  //fail to do 需要支付接口一套流程
