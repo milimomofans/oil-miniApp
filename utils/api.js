@@ -149,6 +149,16 @@ module.exports = {
         contentType:"application/x-www-form-urlencoded"
       })
     },
+    //订单计价
+    tradeCounter(params){
+      let url = baseUrl + `api/trade/counter`
+      return request({
+        url,
+        data:params,
+        method:"POST",
+        contentType:"application/x-www-form-urlencoded"
+      })
+    }
     
 
 }

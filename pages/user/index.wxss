@@ -4,7 +4,6 @@ page {
 .user_head {
   width: 100vw;
   height: 224rpx;
-  background: linear-gradient(135deg, #f5bf47 0%, #f0aa3b 100%);
 }
 .user_info {
   display: flex;

@@ -13,12 +13,14 @@ page {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  align-items: center;
 }
 .gas_name_time .item_left {
-  font-size: 32rpx;
+  font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: bold;
   color: #222222;
+  width: 310rpx;
 }
 .gas_name_time .item_right {
   font-size: 28rpx;
@@ -77,6 +79,7 @@ page {
   border-bottom: 2rpx solid #eeeeee;
 }
 .order_last_price text {
+  width: 175rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;

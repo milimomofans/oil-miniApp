@@ -159,6 +159,7 @@ let EventObj = {
         this.setData(setObj)
       }
     })
+    this.Initialize()
   },
   changeOil(e){ //选择油号
     let {oilid,curoil} = e.currentTarget.dataset
@@ -167,17 +168,25 @@ let EventObj = {
       curOil:curoil,
       curOilGanId:curoil.oilGuns[0].id
     })
+    this.Initialize()
   },
   changeOilGan(e){ //选择油枪
     let {oilganid} = e.currentTarget.dataset
     this.setData({
       curOilGanId:oilganid,
     })
+    this.Initialize()
   },
   inputPrice(e){  //输入价格事件
+    let {value} = e.detail
     this.setData({
-      Price:e.detail.value
+      Price:value
     })
+    if(this.timer){
+      clearTimeout(this.timer)
+      this.timer = null
+    } 
+    this.getTotal(value)
   },
   Pay(){  //fail to do 需要支付接口一套流程
     let {curOil,curOilGanId,Price,gasInfo} = this.data
@@ -214,6 +223,32 @@ let EventObj = {
           duration:1500
         })
       }
+    })
+  },
+  getTotal(val){
+    this.timer = setTimeout(() => {
+      let {gasInfo,curOil} = this.data
+      if(!gasInfo || !curOil) return   //如果没有数据则还没有选择
+      let params = {
+        gasId:gasInfo.id,
+        oilId:curOil.id,
+        amount:val
+      }
+      api.tradeCounter(params).then(res=>{
+        console.log(res)
+        if(res.code == 200){
+          this.setData({
+            total:res.data
+          })
+        }
+      })
+
+    }, 2000);
+  }, 
+  Initialize(){
+    this.setData({
+      Price:'',
+      total:''
     })
   }
 }

@@ -1,5 +1,5 @@
-<!--pages/user/index.wxml  style="background:url(../../image/user/background.png)"-->
-<view class="user_head">
+<!--pages/user/index.wxml-->
+<view class="user_head" style="background:url('https://7479-tyh-vl8cc-1300334879.tcb.qcloud.la/background.png?sign=b590d4f888e56d86085e99a7f0cdf9a2&t=1569601015') no-repeat">
     <view class="user_info" >
         <view class="user_info_left">
             <image src="{{noLogin ? '../../image/user/noLogin.png' : user.avater}}" bindtap="LoginBtn"/>
