@@ -78,7 +78,6 @@ page {
   border-bottom: 2rpx solid #eeeeee;
 }
 .order_last_price text {
-  width: 175rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
