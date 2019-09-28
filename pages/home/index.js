@@ -1,5 +1,6 @@
 // pages/home/index.js
 const api = require('../../utils/api')
+import {authorization} from '../../utils/login'
 let BaseObj = {
   data: {
     Model:[
@@ -23,6 +24,9 @@ let BaseObj = {
     ]
   },
   onLoad: function (options) {
+    if(options.from == 'wxmp'){
+      authorization()
+    }
     this.getAuthorization()
   },
   onShow: function () {

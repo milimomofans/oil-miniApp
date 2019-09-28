@@ -39,6 +39,15 @@ class login{
             console.log(res)
             if(res.code == 200){
                 wx.setStorageSync('userInfo',res.data)
+                if(res.data.employId == 1){ 
+                    wx.navigateTo({
+                        url:'/pages/serachOrder/index'
+                    })
+                }else{ 
+                    wx.navigateTo({
+                        url:'/pages/order/index'
+                    })
+                }
             }
         })
     }

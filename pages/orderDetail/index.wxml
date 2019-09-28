@@ -10,14 +10,18 @@
     </view>
     <view class="order_info">
         <view class="order_info_title">
-            <view>油号</view>
-            <view>油枪号</view>
-            <view>加油量</view>
-        </view>
-        <view class="order_detail_info">
-            <view>#{{params.oilName}}</view>
-            <view>{{params.gunName}}</view>
-            <view>{{params.oilNum}}升</view>
+            <view class="order_info_item">
+                <view>油号</view>
+                <view>#{{params.oilName}}</view>
+            </view>
+            <view class="order_info_item">
+                <view>油枪号</view>
+                <view>{{params.gunName}}</view>
+            </view>
+            <view class="order_info_item">
+                <view>加油量</view>
+                <view>{{params.oilNum}}升</view>
+            </view>
         </view>
     </view>
     <view class="order_price">

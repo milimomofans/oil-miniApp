@@ -123,6 +123,23 @@
 					"pathName": "pages/order/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderDetail/index",
+					"pathName": "pages/orderDetail/index",
+					"query": "params=%7B%22amount%22%3A0.81%2C%22carLicence%22%3A%22%E5%B7%9DA15482%22%2C%22created%22%3A%222019-09-27%2000%3A54%3A55%22%2C%22gasAddr%22%3A%22%E5%9B%9B%E5%B7%9D%E7%9C%81%E6%88%90%E9%83%BD%E5%B8%82%E5%8F%8C%E6%B5%81%E5%8C%BA%E4%B8%AD%E5%92%8C%E9%95%87%E4%B8%AD%E6%9F%8F%E8%B7%AF%E9%BE%99%E7%A5%A5%E4%BD%B3%E8%8B%91%E5%90%91%E5%8D%97300%E7%B1%B3%22%2C%22gasId%22%3A1%2C%22gasName%22%3A%22%E5%BB%B6%E9%95%BF%E5%A3%B3%E7%89%8C%E9%AB%98%E6%96%B0%E4%B8%AD%E5%92%8C%E5%8A%A0%E6%B2%B9%E7%AB%99%22%2C%22gunId%22%3A8%2C%22gunName%22%3A%223%E5%8F%B7%22%2C%22id%22%3A0%2C%22marketPrice%22%3A6.5%2C%22no%22%3A%222019092700000001%22%2C%22oilId%22%3A1%2C%22oilName%22%3A%2292%22%2C%22oilNum%22%3A0.19%2C%22oilType%22%3A1%2C%22payNo%22%3A%22%22%2C%22payTime%22%3Anull%2C%22payType%22%3A2%2C%22phone%22%3A%2215208435626%22%2C%22price%22%3A5.39%2C%22profitAmount%22%3A0.19%2C%22status%22%3A1%2C%22totalAmount%22%3A1%2C%22totalOilNum%22%3A0.15%2C%22userId%22%3A16%7D",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "from=wxmp",
+					"scene": 1035,
+					"referrerInfo": {
+						"appId": "wx2b653e6418f1a566"
+					}
 				}
 			]
 		}
