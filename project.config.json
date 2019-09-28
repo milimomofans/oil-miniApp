@@ -132,10 +132,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
-					"query": "from=wxmp",
+					"query": "",
 					"scene": 1035,
 					"referrerInfo": {
 						"appId": "wx2b653e6418f1a566"
