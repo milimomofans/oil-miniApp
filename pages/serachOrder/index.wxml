@@ -2,6 +2,25 @@
 <view class="prompt">
     仅限当日订单查询
 </view>
+<view class="section">
+    <text class="nowTime">{{nowTime}}</text>
+    <picker mode="time" value="{{pageParams.startTime}}" start="00:01" end="23:59" bindchange="bindTimeChange" data-type="startTime">
+        <view class="picker">
+            <text wx:if="{{pageParams.startTime}}">{{pageParams.startTime}}</text>
+            <text wx:else>00:00</text>
+        </view>
+    </picker>
+    <text class="section_text">至</text>
+    <picker mode="time" value="{{pageParams.endTime}}" start="01:00" end="24:00" bindchange="bindTimeChange" data-type="endTime">
+        <view class="picker">
+            <text wx:if="{{pageParams.endTime}}">{{pageParams.endTime}}</text>
+            <text wx:else>00:00</text>
+        </view>
+    </picker>
+    <view class="serach" bindtap="serach">
+        查询
+    </view>
+</view>
 <!--<view class="time_select">
     <view>
         {{time}}

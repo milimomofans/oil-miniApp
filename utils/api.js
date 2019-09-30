@@ -158,7 +158,22 @@ module.exports = {
         method:"POST",
         contentType:"application/x-www-form-urlencoded"
       })
+    },
+    //微信支付
+    wxPay(tradeNo){
+      let url = baseUrl + `api/trade/${tradeNo}/wx/paysign`
+      return request({
+        method:'POST',
+        url,
+        contentType:"application/x-www-form-urlencoded"
+      })
+    },
+    checkPayState(tradeNo){
+      let url = baseUrl + `api/trade/${tradeNo}/payinfo`
+      return request({
+        url,
+        contentType:"application/x-www-form-urlencoded"
+      })
     }
-    
 
 }

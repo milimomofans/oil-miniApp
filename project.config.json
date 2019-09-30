@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -140,6 +140,13 @@
 					"referrerInfo": {
 						"appId": "wx2b653e6418f1a566"
 					}
+				},
+				{
+					"id": 12,
+					"name": "查询今日订单",
+					"pathName": "pages/serachOrder/index",
+					"query": "gasId=4",
+					"scene": null
 				}
 			]
 		}
