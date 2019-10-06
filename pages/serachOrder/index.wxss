@@ -94,3 +94,9 @@ page {
   font-weight: 400;
   color: #ffffff;
 }
+.noOrder_text {
+  height: 400rpx;
+  text-align: center;
+  line-height: 400rpx;
+  font-size: 34rpx;
+}

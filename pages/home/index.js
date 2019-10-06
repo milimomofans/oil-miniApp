@@ -24,11 +24,14 @@ let BaseObj = {
     ]
   },
   onLoad: function (options) {
-    if(options.from == 'wxmp'){
-      authorization()
-    }else if(options.tradeNo){
+    if(options.tradeNo){
       let {tradeNo} = options
-      this.goToOrderDetail(tradeNo)
+      if(tradeNo != ''){
+        return this.goToOrderDetail(tradeNo)        
+      }
+    } 
+    if(options.from == 'wxmp'){
+      return authorization()
     }
     this.getAuthorization()
   },

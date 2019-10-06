@@ -85,6 +85,12 @@ let eventObj = {
       gasOrder:[]
     })
     this.getGasOrder()
+  },
+  goDetail(e){
+    let {item} = e.currentTarget.dataset
+    wx.navigateTo({
+      url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+    })
   }
 }
 let pageObj = Object.assign(baseObj,apiObj,eventObj)

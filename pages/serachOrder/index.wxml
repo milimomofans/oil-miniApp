@@ -31,7 +31,7 @@
 </view> -->
 <view class="gas_orders" wx:for="{{gasOrder}}" wx:for-item="list"> 
 
-    <view wx:for="{{list}}" wx:key="{{index}}" class="gasOrder_item">
+    <view wx:for="{{list}}" wx:key="{{index}}" class="gasOrder_item" bindtap="goDetail" data-item="{{item}}">
         <view class="item_head">
             <view>{{item.no}}</view>
             <image src="../../image/user/gotoArrow.png" />
@@ -61,4 +61,7 @@
             <view class="item_attr_right"><text style="color:#FF3333">{{item.amount}}</text></view>
         </view>
     </view>
+</view>
+<view wx:if="{{gasOrder.length == 0}}" class="noOrder_text">
+    暂无订单
 </view>
