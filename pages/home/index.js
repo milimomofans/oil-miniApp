@@ -33,6 +33,7 @@ let BaseObj = {
     this.getUserInfo()
   },
   onHide(){
+    wx.hideLoading()
     this.setData({
       haveNext:true,
       showList:false
@@ -217,12 +218,12 @@ let EventObj = {
         //   icon:"none",
         //   duration:800,
         //   success:()=>{
-            // setTimeout(() => {
-            //   wx.navigateTo({
-            //     url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
-            //   }) 
-            // }, 800);
-          // }
+        //     setTimeout(() => {
+        //       wx.navigateTo({
+        //         url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+        //       }) 
+        //     }, 800);
+        //   }
         // })
         this.wxPay(data)
       }else{ 
@@ -239,11 +240,11 @@ let EventObj = {
       console.log(res)
       let {data} = res
       wx.requestPayment({
-        timeStamp: data.timeStamp,
-        nonceStr: data.nonceStr,
-        package: data.package,
-        signType: data.signType,
-        paySign: data.paySign,
+        timeStamp:data.timeStamp,
+        nonceStr:data.nonceStr,
+        package:data.package,
+        signType:data.signType,
+        paySign:data.paySign,
         success:()=>{
           this.checkState(tradeNo)
         }
@@ -255,7 +256,22 @@ let EventObj = {
       title:"支付中,请稍后"
     })
     api.checkPayState(tradeNo).then(res=>{
-      console.log(res)
+      let {data} = res
+      if(data.status == 1){
+        this.goToOrderDetail(data.no)
+      }else{
+        this.checkState(tradeNo)
+      }
+    })
+  },
+  goToOrderDetail(no){
+    api.checkDetail(no).then(res=>{
+      if(res.code == 200){
+        let {data} = res
+        wx.navigateTo({
+          url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+        })
+      }
     })
   },
   getTotal(val){
