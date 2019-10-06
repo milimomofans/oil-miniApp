@@ -26,6 +26,9 @@ let BaseObj = {
   onLoad: function (options) {
     if(options.from == 'wxmp'){
       authorization()
+    }else if(options.tradeNo){
+      let {tradeNo} = options
+      this.goToOrderDetail(tradeNo)
     }
     this.getAuthorization()
   },

@@ -45,8 +45,11 @@ let baseObj = {
 let apiObj = {
   getGasOrder(){
     let {pageParams,gasId} = this.data
-    // pageParams.startTime +=':00'
-    // pageParams.endTime +=':00'
+    if(pageParams.startTime && pageParams.endTime){
+      pageParams.startTime +=':00'
+      pageParams.endTime +=':00'
+    }
+
     api.getGasOrder(gasId,pageParams).then(res=>{
       if(res.code == 200){
         let {data} = res.data
