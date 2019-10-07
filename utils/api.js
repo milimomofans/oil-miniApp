@@ -1,5 +1,7 @@
-let baseUrl = 'https://www.gyouzhe.com/'
+// let baseUrl = 'https://www.gyouzhe.com/'
 // let baseUrl = `https://oil.gyouzhe.cn/`
+let baseUrl = 'https://api.toyouh.com/'
+// let baseUrl = 'http://4dc5s9.natappfree.cc/';
 function request({
     url=url,
     method="GET",

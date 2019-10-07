@@ -263,7 +263,7 @@ let EventObj = {
     })
     api.checkPayState(tradeNo).then(res=>{
       let {data} = res
-      if(data.status == 1){
+      if(data.status == 40){
         this.goToOrderDetail(data.no)
       }else{
         this.checkState(tradeNo)

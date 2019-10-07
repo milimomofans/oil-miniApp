@@ -35,8 +35,12 @@ let eventObj = {
   inputHandler(e){
     let {type} = e.currentTarget.dataset,
     setStr = `params.${type}`
+    let val = e.detail.value;
+    if(val){
+      val = (val+'').toUpperCase();
+    }
     this.setData({
-      [setStr]:e.detail.value
+      [setStr]: val
     })
   },
   getCode(){
