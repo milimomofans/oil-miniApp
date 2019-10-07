@@ -10,6 +10,10 @@ let baseObj = {
       startTime:"",
       endTime:""
     },
+    totalParam:{
+      tradeTotal:0,
+      totalAmount:0
+    },
     haveNext:true
   },
   onLoad: function (options) {
@@ -58,9 +62,14 @@ let apiObj = {
             haveNext:false
           })
         }else{
-          let setStr = `gasOrder[${this.data.pageParams.pageNo - 1}]`
+          let setStr = `gasOrder[${this.data.pageParams.pageNo - 1}]`,
+          totalParam = {
+            tradeTotal:res.data.tradeTotal,
+            totalAmount:res.data.totalAmount
+          }
           this.setData({
-            [setStr]:data
+            [setStr]:data,
+            totalParam
           })
         }
       }

@@ -21,6 +21,9 @@
         查询
     </view>
 </view>
+<view class="total">
+    该时间段有{{totalParam.tradeTotal}}笔订单，总金额{{totalParam.totalAmount}}元
+</view>
 <!--<view class="time_select">
     <view>
         {{time}}
@@ -62,6 +65,6 @@
         </view>
     </view>
 </view>
-<view wx:if="{{gasOrder.length == 0}}" class="noOrder_text">
+<!--<view wx:if="{{gasOrder.length == 0}}" class="noOrder_text">
     暂无订单
-</view>
+</view>-->
