@@ -14,14 +14,17 @@
     <picker mode="time" value="{{pageParams.endTime}}" start="01:00" end="24:00" bindchange="bindTimeChange" data-type="endTime">
         <view class="picker">
             <text wx:if="{{pageParams.endTime}}">{{pageParams.endTime}}</text>
-            <text wx:else>00:00</text>
+            <text wx:else>23:59</text>
         </view>
     </picker>
     <view class="serach" bindtap="serach">
         查询
     </view>
+    <view class="serach" bindtap="cancel">
+        取消
+    </view>
 </view>
-<view class="total">
+<view class="total" wx:if="{{pageParams.startTime && pageParams.endTime && isSerach}}">
     该时间段有{{totalParam.tradeTotal}}笔订单，总金额{{totalParam.totalAmount}}元
 </view>
 <!--<view class="time_select">

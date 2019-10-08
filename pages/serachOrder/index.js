@@ -14,7 +14,8 @@ let baseObj = {
       tradeTotal:0,
       totalAmount:0
     },
-    haveNext:true
+    haveNext:true,
+    isSerach:false
   },
   onLoad: function (options) {
     if(options.gasId){
@@ -88,18 +89,43 @@ let eventObj = {
     })
   },
   serach(){
-    this.setData({
-      haveNext:true,
-      "pageParams.pageNo":1,
-      gasOrder:[]
-    })
-    this.getGasOrder()
+    let {pageParams} = this.data
+    if(pageParams.startTime && pageParams.endTime){
+      this.setData({
+        haveNext:true,
+        "pageParams.pageNo":1,
+        gasOrder:[],
+        isSerach:true
+      })
+      this.getGasOrder()
+    }else{
+      wx.showToast({
+        title:"未选择时间段",
+        icon:"none",
+        duration:1500
+      })
+    }
+    
   },
   goDetail(e){
     let {item} = e.currentTarget.dataset
     wx.navigateTo({
       url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
     })
+  },
+  cancel(){   
+    let pageParams = {
+      pageNo:1,
+      pageSize:10,
+      startTime:"",
+      endTime:""
+    }
+    this.setData({
+      pageParams,
+      haveNext:true,
+      isSerach:false
+    })
+    this.getGasOrder()
   }
 }
 let pageObj = Object.assign(baseObj,apiObj,eventObj)
