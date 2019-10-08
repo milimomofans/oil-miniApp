@@ -125,14 +125,3 @@
     <view class="block_view">
         
     </view>
-
-<popup show="{{needFill}}">
-    <view class="prompt_userInfo">
-        <view class="prompt_userInfo">
-            请完善个人资料，更多优惠等着您！
-        </view>
-        <view class="prompt_userInfo_sure">
-            前往
-        </view>
-    </view>
-</popup>

@@ -25,7 +25,7 @@ let baseObj = {
       this.getGasOrder()
     }
     this.setData({
-      nowTime:this.getTime()
+      nowTime:util.formatTime(new Date()).noHour
     })
   },
   onShow: function () {
@@ -41,10 +41,6 @@ let baseObj = {
         'pageParams.pageNo':pageParams.pageNo+1
       })
     }
-  },
-  getTime(){
-    let nowDate = new Date()
-    return nowDate.toLocaleDateString()
   }
 }
 let apiObj = {
