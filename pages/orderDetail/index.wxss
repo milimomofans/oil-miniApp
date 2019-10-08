@@ -25,7 +25,7 @@ page {
   font-size: 34rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #ff973d;
+  color: #F0AA3B;
   line-height: 2;
 }
 .order_info {
@@ -43,6 +43,11 @@ page {
   font-family: PingFang SC;
   font-weight: 400;
   color: #bbbbbb;
+}
+.order_info .order_info_title .order_info_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .order_info .order_detail_info {
   display: flex;
@@ -79,7 +84,7 @@ page {
   border-bottom: 2rpx solid #eeeeee;
 }
 .order_last_price text {
-  width:160rpx;
+  width: 160rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
@@ -104,4 +109,16 @@ page {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.order_title_style {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ff3232;
+}
+.order_title_head {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #191919;
 }

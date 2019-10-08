@@ -11,26 +11,27 @@
     <view class="order_info">
         <view class="order_info_title">
             <view class="order_info_item">
-                <view>油号</view>
-                <view>#{{params.oilName}}</view>
+                <view class="order_title_head">油号</view>
+                <view class="order_title_style">#{{params.oilName}}</view>
             </view>
             <view class="order_info_item">
-                <view>油枪号</view>
-                <view>{{params.gunName}}</view>
+                <view class="order_title_head">油枪号</view>
+                <view class="order_title_style">{{params.gunName}}</view>
             </view>
             <view class="order_info_item">
-                <view>加油量</view>
-                <view>{{params.oilNum}}升</view>
+                <view class="order_title_head">加油量</view>
+                <view class="order_title_style">{{params.oilNum}}升</view>
             </view>
         </view>
     </view>
     <view class="order_last_price">
-        <text>加油金额：</text><text class="price">{{params.totalAmount}}元</text>     
+        <text style="text-align:right;">加油金额：</text><text class="price">{{params.totalAmount}}元</text>     
     </view>
     <view class="order_price">
-        <view><text>支付金额：</text><text style="color:rgba(34,34,34,1);">{{params.amount}}元</text></view>
-        <view><text>优惠金额：</text><text style="color:rgba(255,51,51,1);">{{params.profitAmount}}元</text></view>
+        <view><text style="text-align:right;">支付金额：</text><text style="color:rgba(34,34,34,1);">{{params.amount}}元</text></view>
+        <view><text style="text-align:right;">优惠金额：</text><text style="color:rgba(255,51,51,1);">{{params.profitAmount}}元</text></view>
     </view>
+     
     
     <view class="order_canvas">
         <canvas canvas-id="Code" class="Canvas"></canvas>

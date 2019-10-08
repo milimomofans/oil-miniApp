@@ -7,14 +7,15 @@ let baseObj = {
     pageParams:{
       pageNo:1,
       pageSize:10,
-      startTime:"",
-      endTime:""
+      startTime:"00:00",
+      endTime:"23:59"
     },
     totalParam:{
       tradeTotal:0,
       totalAmount:0
     },
-    haveNext:true
+    haveNext:true,
+    isSerach:false
   },
   onLoad: function (options) {
     if(options.gasId){
@@ -48,13 +49,15 @@ let baseObj = {
 }
 let apiObj = {
   getGasOrder(){
-    let {pageParams,gasId} = this.data
-    if(pageParams.startTime && pageParams.endTime){
-      pageParams.startTime +=':00'
-      pageParams.endTime +=':00'
+    let {pageParams,gasId} = this.data,
+    apiParams = {
+      pageNo:pageParams.pageNo,
+      pageSize:pageParams.pageSize,
+      startTime:pageParams.startTime + ':00',
+      endTime:pageParams.endTime + ':59'
     }
-
-    api.getGasOrder(gasId,pageParams).then(res=>{
+  
+    api.getGasOrder(gasId,apiParams).then(res=>{
       if(res.code == 200){
         let {data} = res.data
         if(data.length == 0){
@@ -88,18 +91,37 @@ let eventObj = {
     })
   },
   serach(){
-    this.setData({
-      haveNext:true,
-      "pageParams.pageNo":1,
-      gasOrder:[]
-    })
-    this.getGasOrder()
+    let {pageParams} = this.data
+    if(pageParams.startTime && pageParams.endTime){
+      this.setData({
+        haveNext:true,
+        "pageParams.pageNo":1,
+        gasOrder:[],
+        isSerach:true
+      })
+      this.getGasOrder()
+    }
+    
   },
   goDetail(e){
     let {item} = e.currentTarget.dataset
     wx.navigateTo({
-      url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+      url:`/pages/orderDetail/index?params=${JSON.stringify(item)}`
     })
+  },
+  cancel(){   
+    let pageParams = {
+      pageNo:1,
+      pageSize:10,
+      startTime:"00:00",
+      endTime:"23:59"
+    }
+    this.setData({
+      pageParams,
+      haveNext:true,
+      isSerach:false
+    })
+    this.getGasOrder()
   }
 }
 let pageObj = Object.assign(baseObj,apiObj,eventObj)

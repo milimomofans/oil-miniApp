@@ -37,6 +37,7 @@ page {
 }
 .item_attr {
   display: flex;
+  padding: 4rpx;
 }
 .item_attr .item_attr_left {
   width: 140rpx;
@@ -50,7 +51,7 @@ page {
   font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #222222;
+  color: #888888;
 }
 .section {
   display: flex;
@@ -72,7 +73,7 @@ page {
   color: #555555;
 }
 .section .picker {
-  width: 160rpx;
+  width: 140rpx;
   height: 60rpx;
   font-size: 28rpx;
   font-family: PingFang SC;
@@ -92,6 +93,7 @@ page {
   font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
+  margin: 0 5rpx;
   color: #ffffff;
 }
 .noOrder_text {
