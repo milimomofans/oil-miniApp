@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -157,6 +157,13 @@
 					"referrerInfo": {
 						"appId": "wx2b653e6418f1a566"
 					}
+				},
+				{
+					"id": 14,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
