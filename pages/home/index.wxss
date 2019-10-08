@@ -262,7 +262,7 @@
   font-family: PingFang SC;
   font-weight: 400;
   color: #555555;
-  margin-right: 40rpx;
+  margin-right: 110rpx;
   margin-top: 10rpx;
 }
 .discounts image {

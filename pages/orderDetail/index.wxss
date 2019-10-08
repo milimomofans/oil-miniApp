@@ -43,6 +43,11 @@ page {
   font-weight: 400;
   color: #bbbbbb;
 }
+.order_info .order_info_title .order_info_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .order_info .order_detail_info {
   display: flex;
   justify-content: space-around;
