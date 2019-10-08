@@ -106,7 +106,7 @@ let eventObj = {
   goDetail(e){
     let {item} = e.currentTarget.dataset
     wx.navigateTo({
-      url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+      url:`/pages/orderDetail/index?params=${JSON.stringify(item)}`
     })
   },
   cancel(){   
