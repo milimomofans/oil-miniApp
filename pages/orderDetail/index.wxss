@@ -25,7 +25,7 @@ page {
   font-size: 34rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #80c6ff;
+  color: #F0AA3B;
   line-height: 2;
 }
 .order_info {
