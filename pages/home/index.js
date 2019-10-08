@@ -106,22 +106,41 @@ let EventObj = {
   getOil(data){
     let len = data.length 
     console.log(data)
-    if(len == 0){
-      return wx.showModal({
+    // if(len == 0){
+    //   return wx.showModal({
+    //     content:"您附近暂无合作油站",
+    //     showCancel:false,
+    //     confirmText:"确定",
+    //     confirmColor:"#FF973D"
+    //   })
+    // }else if(len > 2 && ((data[0].distance-data[1].distance) > 500)){
+    //   wx.showModal({
+    //     content:`当前选择的站点是${data[0].name}`,
+    //     showCancel:false,
+    //     confirmText:"确定",
+    //     confirmColor:"#FF973D"
+    //   })
+    //   this.setOil(data[0])
+    // }else{
+    //   this.setOil(data[0])
+    // }
+    if(data[0].distance < 3000){
+      if(len > 1 && (data[0].distance - data[1].distance) < 500){
+        wx.showModal({
+          content:`当前选择的站点是${data[0].name}`,
+          showCancel:false,
+          confirmText:"确定",
+          confirmColor:"#FF973D"
+        })
+      }
+      this.setOil(data[0])
+    }else{
+      wx.showModal({
         content:"您附近暂无合作油站",
         showCancel:false,
         confirmText:"确定",
         confirmColor:"#FF973D"
       })
-    }else if(len > 2 && ((data[0].distance-data[1].distance) > 500)){
-      wx.showModal({
-        content:`当前选择的站点是${data[0].name}`,
-        showCancel:false,
-        confirmText:"确定",
-        confirmColor:"#FF973D"
-      })
-      this.setOil(data[0])
-    }else{
       this.setOil(data[0])
     }
   
