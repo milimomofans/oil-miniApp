@@ -52,3 +52,60 @@ page {
   font-weight: 400;
   color: #222222;
 }
+.section {
+  display: flex;
+  align-items: center;
+}
+.section .nowTime {
+  margin-left: 20rpx;
+  margin-right: 14rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #555555;
+}
+.section .section_text {
+  margin: 0 16rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #555555;
+}
+.section .picker {
+  width: 160rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #222222;
+  padding-left: 20rpx;
+  line-height: 60rpx;
+  background: white;
+}
+.section .serach {
+  width: 160rpx;
+  height: 60rpx;
+  background: linear-gradient(135deg, #ff973d 0%, #ff3333 100%);
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+}
+.noOrder_text {
+  height: 400rpx;
+  text-align: center;
+  line-height: 400rpx;
+  font-size: 34rpx;
+}
+.total {
+  width: 710rpx;
+  padding: 20rpx 0;
+  margin: 20rpx auto;
+  text-align: center;
+  font-size: 29rpx;
+  font-weight: 500;
+  background: white;
+}

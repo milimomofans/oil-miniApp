@@ -1,5 +1,6 @@
 // pages/home/index.js
 const api = require('../../utils/api')
+import {authorization} from '../../utils/login'
 let BaseObj = {
   data: {
     Model:[
@@ -23,12 +24,22 @@ let BaseObj = {
     ]
   },
   onLoad: function (options) {
+    if(options.tradeNo){
+      let {tradeNo} = options
+      if(tradeNo != ''){
+        return this.goToOrderDetail(tradeNo)        
+      }
+    } 
+    if(options.from == 'wxmp'){
+      return authorization()
+    }
     this.getAuthorization()
   },
   onShow: function () {
     this.getUserInfo()
   },
   onHide(){
+    wx.hideLoading()
     this.setData({
       haveNext:true,
       showList:false
@@ -208,24 +219,63 @@ let EventObj = {
       console.log(res)
       if(res.code == 200){
         let {data} = res
-        wx.showToast({
-          title:"支付成功！",
-          icon:"none",
-          duration:800,
-          success:()=>{
-            setTimeout(() => {
-              wx.navigateTo({
-                url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
-              }) 
-            }, 800);
-          }
-        })
-      
+        // wx.showToast({
+        //   title:"支付成功！",
+        //   icon:"none",
+        //   duration:800,
+        //   success:()=>{
+        //     setTimeout(() => {
+        //       wx.navigateTo({
+        //         url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
+        //       }) 
+        //     }, 800);
+        //   }
+        // })
+        this.wxPay(data)
       }else{ 
         wx.showToast({
           title:`${res.msg}`,
           icon:"none",
           duration:1500
+        })
+      }
+    })
+  },
+  wxPay(tradeNo){
+    api.wxPay(tradeNo).then(res=>{
+      console.log(res)
+      let {data} = res
+      wx.requestPayment({
+        timeStamp:data.timeStamp,
+        nonceStr:data.nonceStr,
+        package:data.package,
+        signType:data.signType,
+        paySign:data.paySign,
+        success:()=>{
+          this.checkState(tradeNo)
+        }
+      })
+    })
+  },
+  checkState(tradeNo){
+    wx.showLoading({
+      title:"支付中,请稍后"
+    })
+    api.checkPayState(tradeNo).then(res=>{
+      let {data} = res
+      if(data.status == 40){
+        this.goToOrderDetail(data.no)
+      }else{
+        this.checkState(tradeNo)
+      }
+    })
+  },
+  goToOrderDetail(no){
+    api.checkDetail(no).then(res=>{
+      if(res.code == 200){
+        let {data} = res
+        wx.navigateTo({
+          url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
         })
       }
     })

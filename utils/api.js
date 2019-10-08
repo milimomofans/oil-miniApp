@@ -1,14 +1,21 @@
-let baseUrl = 'https://www.gyouzhe.com/'
+// let baseUrl = 'https://www.gyouzhe.com/'
 // let baseUrl = `https://oil.gyouzhe.cn/`
+let baseUrl = 'https://api.toyouh.com/'
+// let baseUrl = 'http://4dc5s9.natappfree.cc/';
 function request({
     url=url,
     method="GET",
     data={},
-    contentType = 'application/json'
+    contentType = 'application/json',
+    showLoadding = true
 }){
     let userInfo = wx.getStorageSync('userInfo'),
     token =userInfo.token || ''
-    console.log(token)
+    if(showLoadding){
+      wx.showLoading({
+        title: '处理中请稍后...'
+      })
+    }
     let p = new Promise((resolve,reject)=>{
         wx.request({
           url,
@@ -46,11 +53,16 @@ function request({
             // setTimeout(()=>{
             //   isone = true
             // },2000)
+          }),
+          complete:(res=>{
+            wx.hideLoading()
           })
         })
       })
       return p
 }
+
+
 
 module.exports = {
     //微信登录
@@ -156,9 +168,36 @@ module.exports = {
         url,
         data:params,
         method:"POST",
-        contentType:"application/x-www-form-urlencoded"
+        contentType:"application/x-www-form-urlencoded",
+        showLoadding:false
+      })
+    },
+    //微信支付
+    wxPay(tradeNo){
+      let url = baseUrl + `api/trade/${tradeNo}/wx/paysign`
+      return request({
+        method:'POST',
+        url,
+        contentType:"application/x-www-form-urlencoded",
+        showLoadding:false
+      })
+    },
+    checkPayState(tradeNo){
+      let url = baseUrl + `api/trade/${tradeNo}/payinfo`
+      return request({
+        url,
+        contentType:"application/x-www-form-urlencoded",
+        showLoadding:false
+      })
+    },
+    //查询订单详情
+    checkDetail(no){
+      let url = baseUrl + `api/trade/${no}`
+      return request({
+        url,
+        contentType:'application/x-www-form-urlencoded',
+        showLoadding:false
       })
     }
-    
 
 }

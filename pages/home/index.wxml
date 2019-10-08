@@ -48,14 +48,15 @@
 
 <view class="Price">
     <row>
-        <col span="8" offset="8" custom-class="price_style">当前市价</col>
+        <col span="8" custom-class="price_style">油号</col>
+        <col span="8"  custom-class="price_style">当前市价</col>
         <col span="8" custom-class="price_style">本油站优惠价</col>
     </row>
 </view>
 <view class="Price" wx:for="{{gasInfo.oils ? gasInfo.oils : falseData}}" wx:key="{{index}}">
     <row>
         <col span="8" custom-class="price_style">
-            <text wx:if="{{item.name}}">油号:#{{item.name}}</text>
+            <text wx:if="{{item.name}}">{{item.name}}#</text>
             <text style="text-align:center" wx:else>-</text>
         </col>
         <col span="8" custom-class="price_style">

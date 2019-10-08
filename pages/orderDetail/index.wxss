@@ -16,16 +16,17 @@ page {
   align-items: center;
 }
 .gas_name_time .item_left {
-  font-size: 30rpx;
+  font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: bold;
   color: #222222;
 }
 .gas_name_time .item_right {
-  font-size: 28rpx;
+  font-size: 34rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  color: #ff973d;
+  color: #80c6ff;
+  line-height: 2;
 }
 .order_info {
   width: 670rpx;
@@ -69,7 +70,7 @@ page {
   border-bottom: 2rpx solid #eeeeee;
 }
 .order_price text {
-  width: 120rpx;
+  width: 160rpx;
   color: #bbbbbb;
   text-align: left;
   display: inline-block;
@@ -83,6 +84,7 @@ page {
   border-bottom: 2rpx solid #eeeeee;
 }
 .order_last_price text {
+  width: 160rpx;
   font-size: 30rpx;
   font-family: PingFang SC;
   font-weight: 400;
@@ -102,4 +104,21 @@ page {
   width: 240rpx;
   height: 240rpx;
   margin: 40rpx auto 0 auto;
+}
+.order_info_item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.order_title_style {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ff3232;
+}
+.order_title_head {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #191919;
 }

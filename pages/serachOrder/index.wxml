@@ -2,6 +2,28 @@
 <view class="prompt">
     仅限当日订单查询
 </view>
+<view class="section">
+    <text class="nowTime">{{nowTime}}</text>
+    <picker mode="time" value="{{pageParams.startTime}}" start="00:01" end="23:59" bindchange="bindTimeChange" data-type="startTime">
+        <view class="picker">
+            <text wx:if="{{pageParams.startTime}}">{{pageParams.startTime}}</text>
+            <text wx:else>00:00</text>
+        </view>
+    </picker>
+    <text class="section_text">至</text>
+    <picker mode="time" value="{{pageParams.endTime}}" start="01:00" end="24:00" bindchange="bindTimeChange" data-type="endTime">
+        <view class="picker">
+            <text wx:if="{{pageParams.endTime}}">{{pageParams.endTime}}</text>
+            <text wx:else>00:00</text>
+        </view>
+    </picker>
+    <view class="serach" bindtap="serach">
+        查询
+    </view>
+</view>
+<view class="total">
+    该时间段有{{totalParam.tradeTotal}}笔订单，总金额{{totalParam.totalAmount}}元
+</view>
 <!--<view class="time_select">
     <view>
         {{time}}
@@ -12,7 +34,7 @@
 </view> -->
 <view class="gas_orders" wx:for="{{gasOrder}}" wx:for-item="list"> 
 
-    <view wx:for="{{list}}" wx:key="{{index}}" class="gasOrder_item">
+    <view wx:for="{{list}}" wx:key="{{index}}" class="gasOrder_item" bindtap="goDetail" data-item="{{item}}">
         <view class="item_head">
             <view>{{item.no}}</view>
             <image src="../../image/user/gotoArrow.png" />
@@ -43,3 +65,6 @@
         </view>
     </view>
 </view>
+<!--<view wx:if="{{gasOrder.length == 0}}" class="noOrder_text">
+    暂无订单
+</view>-->

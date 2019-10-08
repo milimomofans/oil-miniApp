@@ -77,7 +77,7 @@ let apiObj = {
       case 'serachOrder':
           let {user} = this.data
           
-          linkUrl = `/pages/serachOrder/index?gasId=${user.employId}`
+          linkUrl = `/pages/serachOrder/index?gasId=${user.gasId}`
           break;    
     }
     wx.navigateTo({
