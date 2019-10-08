@@ -33,9 +33,9 @@ let BaseObj = {
     if(options.from == 'wxmp'){
       return authorization()
     }
-    this.getAuthorization()
   },
   onShow: function () {
+    this.getAuthorization()
     this.getUserInfo()
   },
   onHide(){
