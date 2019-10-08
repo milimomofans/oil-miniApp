@@ -117,8 +117,8 @@ page {
   color: #ff3232;
 }
 .order_title_head {
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-family: PingFang SC;
-  font-weight: 400;
+  font-weight: 500;
   color: #191919;
 }
