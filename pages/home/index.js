@@ -25,18 +25,31 @@ let BaseObj = {
   },
   onLoad: function (options) {
     if(options.tradeNo){
+      this.setData({
+        noPerform:true
+      })
       let {tradeNo} = options
       if(tradeNo != ''){
         return this.goToOrderDetail(tradeNo)        
       }
     } 
     if(options.from == 'wxmp'){
+      this.setData({
+        noPerform:true
+      })
       return authorization()
     }
   },
   onShow: function () {
-    this.getAuthorization()
-    this.getUserInfo()
+    if(this.data.noPerform){
+      this.setData({
+        noPerform:false
+      })
+    }else{
+      this.getAuthorization()
+      this.getUserInfo()
+    }
+   
   },
   onHide(){
     wx.hideLoading()
@@ -244,6 +257,9 @@ let EventObj = {
   },
   inputPrice(e){  //输入价格事件
     let {value} = e.detail
+    if (!/^(\d?)+(\.\d{0,2})?$/.test(value)) { 
+      value = value.substring(0, e.detail.value.length - 1);
+    }
     this.setData({
       Price:value
     })
