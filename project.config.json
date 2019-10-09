@@ -162,7 +162,7 @@
 					"id": 14,
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
-					"query": "",
+					"query": "from=wxmp",
 					"scene": null
 				}
 			]
