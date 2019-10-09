@@ -52,7 +52,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 16,
+=======
+			"current": 14,
+>>>>>>> 942002fce75ea48fe08859b517362d25c91e6112
 			"list": [
 				{
 					"id": -1,
@@ -149,6 +153,7 @@
 					"scene": null
 				},
 				{
+<<<<<<< HEAD
 					"id": -1,
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
@@ -174,6 +179,22 @@
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
 					"query": "tradeNo=2019100800000007",
+=======
+					"id": 13,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "tradeNo=2019100800000001&pay=true",
+					"scene": 1020,
+					"referrerInfo": {
+						"appId": "wx2b653e6418f1a566"
+					}
+				},
+				{
+					"id": 14,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "",
+>>>>>>> 942002fce75ea48fe08859b517362d25c91e6112
 					"scene": null
 				}
 			]

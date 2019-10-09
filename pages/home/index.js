@@ -25,18 +25,31 @@ let BaseObj = {
   },
   onLoad: function (options) {
     if(options.tradeNo){
+      this.setData({
+        noPerform:true
+      })
       let {tradeNo} = options
       if(tradeNo != ''){
         return this.goToOrderDetail(tradeNo)        
       }
     } 
     if(options.from == 'wxmp'){
+      this.setData({
+        noPerform:true
+      })
       return authorization()
     }
-    this.getAuthorization()
   },
   onShow: function () {
-    this.getUserInfo()
+    if(this.data.noPerform){
+      this.setData({
+        noPerform:false
+      })
+    }else{
+      this.getAuthorization()
+      this.getUserInfo()
+    }
+   
   },
   onHide(){
     wx.hideLoading()
@@ -62,7 +75,6 @@ let ApiObj = {
             wx.navigateTo({
               url:"/pages/editor/index"
             })
-            console.log('点击了前往')
           }
         })
       }
@@ -81,12 +93,16 @@ let EventObj = {
     })
   },
   //获取油站列表
-  GetList(){
+  GetList(isFirst = false){
     let {ListParams,GasList} = this.data
     api.getGas(ListParams).then(res=>{
       if(res.code == 200){
         let {data} = res,
         str = `GasList[${ListParams.pageNo-1}]`
+        if(isFirst){
+          this.getOil(data)
+        }
+
         if(data.length > 0){
           this.setData({
             [str]:data
@@ -98,6 +114,53 @@ let EventObj = {
         }
       }
     })
+  },
+  //第一次获取地址进行的操作
+  getOil(data){
+    let len = data.length 
+    console.log(data)
+    // if(len == 0){
+    //   return wx.showModal({
+    //     content:"您附近暂无合作油站",
+    //     showCancel:false,
+    //     confirmText:"确定",
+    //     confirmColor:"#FF973D"
+    //   })
+    // }else if(len > 2 && ((data[0].distance-data[1].distance) > 500)){
+    //   wx.showModal({
+    //     content:`当前选择的站点是${data[0].name}`,
+    //     showCancel:false,
+    //     confirmText:"确定",
+    //     confirmColor:"#FF973D"
+    //   })
+    //   this.setOil(data[0])
+    // }else{
+    //   this.setOil(data[0])
+    // }
+    if(data[0].distance < 3000){
+      if(len > 1 && (data[0].distance - data[1].distance) < 500){
+        wx.showModal({
+          content:`当前选择的站点是${data[0].name}`,
+          showCancel:false,
+          confirmText:"确定",
+          confirmColor:"#FF973D"
+        })
+      }
+      this.setOil(data[0])
+    }else{
+      wx.showModal({
+        content:"您附近暂无合作油站",
+        showCancel:false,
+        confirmText:"确定",
+        confirmColor:"#FF973D"
+      })
+      this.setOil(data[0])
+    }
+  
+  },
+  setOil(data){
+    console.log(data,'000000000000000')
+    this.getGasInfo(data.id)
   },
   scrollTolower(){
     if(this.data.haveNext){
@@ -131,6 +194,8 @@ let EventObj = {
                     this.getAuthorization()
                   }
                 })
+              }else{
+                this.GetList(true)
               }
             }
 
@@ -145,7 +210,9 @@ let EventObj = {
    * 获取选择的油站信息
    */
   getGasInfo(e){
-    let {gasid} = e.currentTarget.dataset
+    console.log(e)
+    let gasid
+    e.hasOwnProperty("currentTarget") ? gasid= e.currentTarget.dataset.gasid : gasid = e
     console.log()
     api.gasInfo(gasid).then(res=>{
       console.log(res)
@@ -204,7 +271,7 @@ let EventObj = {
     }
     this.getTotal(value)
   },
-  Pay(){  //fail to do 需要支付接口一套流程
+  Pay(){  
     let {curOil,curOilGanId,Price,gasInfo} = this.data
     if(curOil.length > 0 && curOilGanId.length > 0 && Price > 0){
       return false
@@ -219,18 +286,6 @@ let EventObj = {
       console.log(res)
       if(res.code == 200){
         let {data} = res
-        // wx.showToast({
-        //   title:"支付成功！",
-        //   icon:"none",
-        //   duration:800,
-        //   success:()=>{
-        //     setTimeout(() => {
-        //       wx.navigateTo({
-        //         url:`/pages/orderDetail/index?params=${JSON.stringify(data)}`
-        //       }) 
-        //     }, 800);
-        //   }
-        // })
         this.wxPay(data)
       }else{ 
         wx.showToast({
@@ -320,6 +375,7 @@ function LocationHandler(){
         [latStr]:res.latitude,
         [lngStr]:res.longitude
       })
+      this.GetList(true)
     },
     fail:(res=>{
       wx.showModal({
@@ -333,6 +389,8 @@ function LocationHandler(){
                 this.getAuthorization()
               }
             })
+          }else{
+            this.GetList(true)
           }
         }
       })

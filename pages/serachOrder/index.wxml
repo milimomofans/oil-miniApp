@@ -37,7 +37,7 @@
 
     <view wx:for="{{list}}" wx:key="{{index}}" class="gasOrder_item" bindtap="goDetail" data-item="{{item}}">
         <view class="item_head">
-            <view>{{item.no}}</view>
+            <view>订单号：{{item.no}}</view>
             <image src="../../image/user/gotoArrow.png" />
         </view>
         <view class="item_attr">
@@ -54,7 +54,7 @@
         </view>
         <view class="item_attr">
             <view class="item_attr_left">油枪号</view>
-            <view class="item_attr_right">{{item.gunName}}</view>
+            <view class="item_attr_right">{{item.gunName}}号油枪</view>
         </view>
         <view class="item_attr">
             <view class="item_attr_left">油号</view>
@@ -62,7 +62,7 @@
         </view>
         <view class="item_attr">
             <view class="item_attr_left">加油金额</view>
-            <view class="item_attr_right"><text style="color:#FF3333">{{item.totalAmount}}</text></view>
+            <view class="item_attr_right"><text style="color:#FF3333">{{item.totalAmount}}元</text></view>
         </view>
     </view>
 </view>
