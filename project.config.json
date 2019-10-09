@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -146,6 +146,34 @@
 					"name": "查询今日订单",
 					"pathName": "pages/serachOrder/index",
 					"query": "gasId=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "tradeNo=123456& from='wxmp'",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "from='wxmp'",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "from=wxmp",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "tradeNo=2019100800000007",
 					"scene": null
 				}
 			]

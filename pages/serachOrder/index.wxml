@@ -62,7 +62,7 @@
         </view>
         <view class="item_attr">
             <view class="item_attr_left">加油金额</view>
-            <view class="item_attr_right"><text style="color:#FF3333">{{item.amount}}</text></view>
+            <view class="item_attr_right"><text style="color:#FF3333">{{item.totalAmount}}</text></view>
         </view>
     </view>
 </view>
