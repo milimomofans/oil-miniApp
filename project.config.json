@@ -24,12 +24,11 @@
 	"libVersion": "2.7.3",
 	"appid": "wx9e98d7ecb8b9da6b",
 	"projectname": "miniprogram-1",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -44,19 +43,10 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
-			"current": 16,
-=======
 			"current": 14,
->>>>>>> 942002fce75ea48fe08859b517362d25c91e6112
 			"list": [
 				{
 					"id": -1,
@@ -153,33 +143,6 @@
 					"scene": null
 				},
 				{
-<<<<<<< HEAD
-					"id": -1,
-					"name": "pages/home/index",
-					"pathName": "pages/home/index",
-					"query": "tradeNo=123456& from='wxmp'",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/home/index",
-					"pathName": "pages/home/index",
-					"query": "from='wxmp'",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/home/index",
-					"pathName": "pages/home/index",
-					"query": "from=wxmp",
-					"scene": null
-				},
-				{
-					"id": 16,
-					"name": "pages/home/index",
-					"pathName": "pages/home/index",
-					"query": "tradeNo=2019100800000007",
-=======
 					"id": 13,
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
@@ -194,7 +157,6 @@
 					"name": "pages/home/index",
 					"pathName": "pages/home/index",
 					"query": "",
->>>>>>> 942002fce75ea48fe08859b517362d25c91e6112
 					"scene": null
 				}
 			]

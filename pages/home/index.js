@@ -257,6 +257,9 @@ let EventObj = {
   },
   inputPrice(e){  //输入价格事件
     let {value} = e.detail
+    if (!/^(\d?)+(\.\d{0,2})?$/.test(value)) { 
+      value = value.substring(0, e.detail.value.length - 1);
+    }
     this.setData({
       Price:value
     })
