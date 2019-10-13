@@ -21,7 +21,8 @@ let BaseObj = {
     Price:"",
     falseData:[
       1,2,3
-    ]
+    ],
+    isShowModal:false
   },
   onLoad: function (options) {
     if(options.tradeNo){
@@ -99,8 +100,11 @@ let EventObj = {
       if(res.code == 200){
         let {data} = res,
         str = `GasList[${ListParams.pageNo-1}]`
-        if(isFirst){
+        if(isFirst && !this.data.isShowModal){
           this.getOil(data)
+          this.setData({
+            isShowModal:true
+          })
         }
 
         if(data.length > 0){
