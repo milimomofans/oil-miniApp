@@ -7,7 +7,8 @@ function request({
     method="GET",
     data={},
     contentType = 'application/json',
-    showLoadding = true
+    showLoadding = true,
+    LoginPre
 }){
     let userInfo = wx.getStorageSync('userInfo'),
     token =userInfo.token || ''
@@ -33,6 +34,9 @@ function request({
               console.log(res.data.code)
               let {code} = res.data
               if(code == 403){   //因为app.js已经进行过一次登陆,如果还是报错，则为未授权需要跳转到登陆页面授权
+                if(LoginPre){
+                  return 
+                }
                 wx.navigateTo({
                   url:"/pages/login/index"
                 })
@@ -87,12 +91,13 @@ module.exports = {
       })
     },
     //获取加油站列表
-    getGas(data){
+    getGas(data,LoginPre){
       let url = baseUrl+`api/gas`
       return request({
         url,
         data,
-        contentType:"application/x-www-form-urlencoded"
+        contentType:"application/x-www-form-urlencoded",
+        LoginPre
       })
     },
     //获取加油站的油号等信息

@@ -96,7 +96,7 @@ let EventObj = {
   //获取油站列表
   GetList(isFirst = false){
     let {ListParams,GasList} = this.data
-    api.getGas(ListParams).then(res=>{
+    api.getGas(ListParams,isFirst).then(res=>{
       if(res.code == 200){
         let {data} = res,
         str = `GasList[${ListParams.pageNo-1}]`
