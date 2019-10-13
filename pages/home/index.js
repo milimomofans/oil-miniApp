@@ -150,6 +150,7 @@ let EventObj = {
           confirmColor:"#FF973D"
         })
       }
+      //123
       this.setOil(data[0])
     }else{
       wx.showModal({
